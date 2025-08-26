@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="fb367fdd-ecc4-42e4-8d7a-2f23e8b9a07d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/co/com/bancolombia/MainApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/co/com/bancolombia/config/UseCasesConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/application.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/log4j2.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/co/com/bancolombia/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/co/com/bancolombia/config/UseCasesConfigTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deployment/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/role/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/role/gateways/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/user/gateways/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/usecase/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lombok.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="31q7mUNGmtsolPYImD32sZNm4Ht" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "git-widget-placeholder": "feature/HU-001-registro-de-usuarios",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/PRO/Microservices/scaffold-crediya/authentication-services"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fb367fdd-ecc4-42e4-8d7a-2f23e8b9a07d" name="Changes" comment="" />
+      <created>1756239908642</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1756239908642</updated>
+    </task>
+    <servers />
+  </component>
+</project>
