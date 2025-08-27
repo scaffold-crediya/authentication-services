@@ -31,18 +31,18 @@ public class UserUseCase {
         return validateUser(user)
                 .flatMap(validatedUser ->
                         userRepository.existsByEmail(validatedUser.getEmail())
-                                .flatMap(emailExists -> {
-                                    if (emailExists) {
-                                        return Mono.error(new IllegalArgumentException("El correo electrónico ya está registrado."));
-                                    }
-                                    return userRepository.existsByIdentityDocument(validatedUser.getIdentityDocument())
-                                            .flatMap(docExists -> {
-                                                if (docExists) {
-                                                    return Mono.error(new IllegalArgumentException("El documento de identidad ya está registrado."));
-                                                }
-                                                return Mono.just(validatedUser);
-                                            });
-                                }))
+                        .flatMap(emailExists -> {
+                            if (emailExists) {
+                                return Mono.error(new IllegalArgumentException("El correo electrónico ya está registrado."));
+                            }
+                            return userRepository.existsByIdentityDocument(validatedUser.getIdentityDocument())
+                                    .flatMap(docExists -> {
+                                        if (docExists) {
+                                            return Mono.error(new IllegalArgumentException("El documento de identidad ya está registrado."));
+                                        }
+                                        return Mono.just(validatedUser);
+                                    });
+                        }))
                 .flatMap(userRepository::save);
     }
 
@@ -58,6 +58,14 @@ public class UserUseCase {
 
     public Mono<Void> deleteById(UUID id) {
         return userRepository.deleteById(id);
+    }
+
+    public Mono<Boolean> checkUserExistsByDocument(String identityDocument) {
+        return userRepository.existsByIdentityDocument(identityDocument);
+    }
+
+    public Mono<Boolean> checkUserExistsByEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 
     private Mono<User> validateUser(User user) {
