@@ -2,36 +2,33 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile default="true" name="Default" enabled="true" />
       <profile name="Gradle Imported" enabled="true">
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.38/57f8f5e02e92a30fd21b80cbd426a4172b5f8e29/lombok-1.18.38.jar" />
         </processorPath>
-        <module name="authentication-service.model.test" />
-        <module name="authentication-service.reactive-web.main" />
-        <module name="authentication-service.r2dbc-postgresql.main" />
-        <module name="authentication-service.api-rest.test" />
-        <module name="authentication-service.r2dbc-postgresql.test" />
-        <module name="authentication-service.app-service.main" />
-        <module name="authentication-service.usecase.main" />
-        <module name="authentication-service.api-rest.main" />
-        <module name="authentication-service.model.main" />
-        <module name="authentication-service.reactive-web.test" />
-        <module name="authentication-service.app-service.test" />
-        <module name="authentication-service.usecase.test" />
+        <module name="autentication-services.app-service.main" />
+        <module name="autentication-services.r2dbc-postgresql.main" />
+        <module name="autentication-services.model.test" />
+        <module name="autentication-services.model.main" />
+        <module name="autentication-services.r2dbc-postgresql.test" />
+        <module name="autentication-services.reactive-web.main" />
+        <module name="autentication-services.usecase.main" />
+        <module name="autentication-services.usecase.test" />
+        <module name="autentication-services.app-service.test" />
+        <module name="autentication-services.reactive-web.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="authentication-service" options="-Amapstruct.suppressGeneratorTimestamp=true" />
-      <module name="authentication-service.app-service" options="-parameters" />
-      <module name="authentication-service.app-service.main" options="-parameters" />
-      <module name="authentication-service.app-service.test" options="-parameters" />
-      <module name="authentication-service.main" options="-Amapstruct.suppressGeneratorTimestamp=true" />
-      <module name="authentication-service.test" options="-Amapstruct.suppressGeneratorTimestamp=true" />
+      <module name="autentication-services" options="-Amapstruct.suppressGeneratorTimestamp=true" />
+      <module name="autentication-services.app-service" options="-parameters" />
+      <module name="autentication-services.app-service.main" options="-parameters" />
+      <module name="autentication-services.app-service.test" options="-parameters" />
+      <module name="autentication-services.main" options="-Amapstruct.suppressGeneratorTimestamp=true" />
+      <module name="autentication-services.test" options="-Amapstruct.suppressGeneratorTimestamp=true" />
     </option>
   </component>
 </project>
