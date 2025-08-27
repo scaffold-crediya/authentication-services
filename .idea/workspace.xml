@@ -4,29 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb367fdd-ecc4-42e4-8d7a-2f23e8b9a07d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/co/com/bancolombia/MainApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/co/com/bancolombia/config/UseCasesConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/log4j2.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/co/com/bancolombia/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/co/com/bancolombia/config/UseCasesConfigTest.java" beforeDir="false" />
+    <list default="true" id="3571fb2a-d86e-497a-b69a-d8b75ec975f1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.14/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/role/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/role/gateways/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/user/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/bancolombia/model/user/gateways/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lombok.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,10 +35,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
-  <component name="ProjectId" id="31q7mUNGmtsolPYImD32sZNm4Ht" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="31qQwQRLizXcHyzQAIU8LziuOHe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,9 +48,9 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "git-widget-placeholder": "feature/HU-001-registro-de-usuarios",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/PRO/Microservices/scaffold-crediya/authentication-services"
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -72,11 +66,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fb367fdd-ecc4-42e4-8d7a-2f23e8b9a07d" name="Changes" comment="" />
-      <created>1756239908642</created>
+      <changelist id="3571fb2a-d86e-497a-b69a-d8b75ec975f1" name="Changes" comment="" />
+      <created>1756249361128</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1756239908642</updated>
+      <updated>1756249361128</updated>
     </task>
     <servers />
   </component>
