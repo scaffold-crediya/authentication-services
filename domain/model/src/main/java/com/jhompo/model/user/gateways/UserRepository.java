@@ -1,4 +1,13 @@
 package com.jhompo.model.user.gateways;
 
-public interface UserRepository {
+import com.jhompo.model.gateways.GenericRepository;
+import com.jhompo.model.user.User;
+import reactor.core.publisher.Mono;
+
+import java.util.UUID;
+
+public interface UserRepository extends GenericRepository<User, UUID> {
+
+    Mono<Boolean> existsByEmail(String email);
+    Mono<Boolean> existsByIdentityDocument(String email);
 }
