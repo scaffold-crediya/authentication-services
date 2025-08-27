@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: "authentication-service"
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5432/crediya_authentication
+    username: jhompo
+    password: pass123
   devtools:
     add-properties: false
   h2:

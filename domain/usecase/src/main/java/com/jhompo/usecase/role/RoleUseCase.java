@@ -9,10 +9,14 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
-@RequiredArgsConstructor
+
 public class RoleUseCase {
 
     private final RoleRepository rolRepository;
+
+    public RoleUseCase(RoleRepository repository) {
+        this.rolRepository = repository;
+    }
 
 
     public Mono<Role> findById(UUID id) {
