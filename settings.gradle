@@ -12,7 +12,7 @@ buildCache {
     }
 }
 
-rootProject.name = 'authentication-service'
+rootProject.name = 'autentication-services'
 
 include ':app-service'
 include ':model'
@@ -22,7 +22,5 @@ project(':model').projectDir = file('./domain/model')
 project(':usecase').projectDir = file('./domain/usecase')
 include ':r2dbc-postgresql'
 project(':r2dbc-postgresql').projectDir = file('./infrastructure/driven-adapters/r2dbc-postgresql')
-include ':api-rest'
-project(':api-rest').projectDir = file('./infrastructure/entry-points/api-rest')
 include ':reactive-web'
 project(':reactive-web').projectDir = file('./infrastructure/entry-points/reactive-web')
