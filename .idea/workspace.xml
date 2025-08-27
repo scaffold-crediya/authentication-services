@@ -5,18 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3571fb2a-d86e-497a-b69a-d8b75ec975f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/gateways/GenericRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/role/RoleUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/applications/app-service/src/main/resources/scripts/create_tables.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/dtos/ErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/exception_handler/GlobalErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/role/RoleDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/role/RoleRepositoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/role/data/RoleData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/UserDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/UserRepositoryAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/data/UserData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/RoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/dtos/UserRequestDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/dtos/UserResponseDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/src/main/resources/log4j2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/rol/Rol.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/rol/gateways/RolRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/gateways/RoleRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/com/jhompo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/src/test/java/com/jhompo/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/com/jhompo/config/UseCasesConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/src/test/java/com/jhompo/config/UseCasesConfigTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/gateways/RoleRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/gateways/RoleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/gateways/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/gateways/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/rol/RolUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/role/RoleUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/role/RoleUseCase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/user/UserUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/user/UserUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/MyReactiveRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/MyReactiveRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/com/jhompo/r2dbc/MyReactiveRepositoryAdapterTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +66,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="SWAP_SIDES_IN_COMPARE_BRANCHES" value="true" />
@@ -57,17 +85,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.authentication-service:applications:app-service [:app-service:com.jhompo.MainApplication.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "feature/HU-001-registro-de-usuarios",
+    "kotlin-language-version-configured": "true",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\PRO\Microservices\scaffold-crediya\authentication-service" />
+    </key>
+  </component>
   <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.jhompo.MainApplication" />
+      <module name="authentication-service.app-service.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
