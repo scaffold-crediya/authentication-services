@@ -5,129 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d17807a1-2099-4c0b-8adf-03c50ea72497" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/applications/app-service/src/main/java/co/com/jhompo/MainApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/user/gateways/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/UserUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/UserReactiveRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/UserRepositoryAdapter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/config/PostgreSQLConnectionPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/config/PostgresqlConnectionProperties.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/entity/UserEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/dtos/UserRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/dtos/UserResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/ErrorResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/GlobalErrorHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/com/jhompo/MainApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/com/jhompo/config/ObjectMapperConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/com/jhompo/config/UseCasesConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/resources/log4j2.properties" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/src/main/resources/log4j2.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/com/jhompo/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/com/jhompo/config/ObjectMapperConfigTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/com/jhompo/config/UseCasesConfigTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/1259" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/1/1259" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2619" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2619" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2619_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2619_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2696" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2696" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2840" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2840" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2841" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/1/2841" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/1/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/1247" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/1247" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/1249" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/1249" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/1259" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/1259" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/pg_internal.init" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16397" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16397" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16401" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16402" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16403" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16405" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16407" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16409" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16416" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16417" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16418" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16420" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2579" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2579" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2604" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2604" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2606" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2606" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2608" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2608" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2608_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2608_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2608_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2608_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2610" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2610" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2610_fsm" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2610_fsm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2610_vm" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2610_vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2656" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2656" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2657" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2657" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2658" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2658" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2659" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2659" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2662" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2662" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2663" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2663" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2664" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2664" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2665" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2665" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2666" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2666" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2667" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2667" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2673" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2673" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2674" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2674" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2678" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2678" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2679" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2679" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2703" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2703" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2704" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/2704" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/3455" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/3455" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/5/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/5/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/global/1260" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/global/1260" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/5/pg_internal.init" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_control" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_internal.init" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/pg_wal/000000010000000000000001" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/pg_xact/0000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/postmaster.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/deployment/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/deployment/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/gateways/GenericRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/gateways/RoleRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/gateways/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/role/RoleUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/user/UserUseCase.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/config/PostgreSQLConnectionPool.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/config/PostgresqlConnectionProperties.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/dtos/ErrorResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/exception_handler/GlobalErrorHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/helper/ReactiveAdapterOperations.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/role/RoleDataRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/role/RoleRepositoryAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/role/data/RoleData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/UserDataRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/UserRepositoryAdapter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/data/UserData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/com/jhompo/r2dbc/config/PostgreSQLConnectionPoolTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/com/jhompo/r2dbc/helper/ReactiveAdapterOperationsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/ApiRest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/RoleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/config/CorsConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/config/SecurityHeadersConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/dtos/UserRequestDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/dtos/UserResponseDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/com/jhompo/api/ApiRestTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/com/jhompo/api/config/ConfigTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/main.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/GlobalErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/GlobalErrorHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,10 +40,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="31sUwR5rN6jJS3GKGN5AGjtq6Pn" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -311,6 +202,11 @@
           <url>file://$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/UserRepositoryAdapter.java</url>
           <line>31</line>
           <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/UserUseCase.java</url>
+          <line>77</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
