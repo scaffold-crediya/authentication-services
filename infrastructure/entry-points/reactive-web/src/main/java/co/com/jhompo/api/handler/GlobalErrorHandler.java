@@ -58,19 +58,6 @@ public class GlobalErrorHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
     }
 
-    // Maneja errores de conflictos de datos (ej. duplicados en la base de datos)
-   /*  @ExceptionHandler(DataIntegrityViolationException.class)
-    public Mono<ResponseEntity<ErrorResponse>> handleDataIntegrityViolationException(DataIntegrityViolationException ex, ServerWebExchange exchange) {
-        String userMessage = "Ha ocurrido un error de integridad de datos. Posiblemente, el registro que intentas crear ya existe.";
-        ErrorResponse response = new ErrorResponse(
-                LocalDateTime.now().toString(),
-                HttpStatus.CONFLICT.value(),
-                HttpStatus.CONFLICT.getReasonPhrase(), // Tipo de error: "Conflict"
-                userMessage,
-                exchange.getRequest().getPath().toString()
-        );
-        return Mono.just(new ResponseEntity<>(response, HttpStatus.CONFLICT));
-    } */
 
     // Maneja errores de estado ilegal (ej. recurso no encontrado)
     @ExceptionHandler(IllegalStateException.class)
