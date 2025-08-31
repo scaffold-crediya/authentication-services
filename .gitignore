@@ -334,4 +334,17 @@ gradle-app.setting
 # -----
 *.hprof
 build-cache
-/data_vol/
+
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# Gradle
+.gradle/
+build/
+
+# Docker/Database data
+data_vol/

@@ -5,20 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d17807a1-2099-4c0b-8adf-03c50ea72497" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/1/pg_internal.init" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16397" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/16397" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/pg_internal.init" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/5/pg_internal.init" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/base/16384/pg_internal.init" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_control" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_internal.init" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_internal.init" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/global/pg_internal.init" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/pg_wal/000000010000000000000001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/pg_xact/0000" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_vol/postgres-data/postmaster.pid" beforeDir="false" afterPath="$PROJECT_DIR$/data_vol/postgres-data/postmaster.pid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/GlobalErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/GlobalErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,23 +47,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.UserReactiveRepositoryAdapterTest.mustFindValueById.executor": "Run",
-    "Gradle.authentication-service:applications:app-service [:app-service:co.com.jhompo.MainApplication.main()].executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "feature/HU-001-registro-de-usuarios",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.UserReactiveRepositoryAdapterTest.mustFindValueById.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.authentication-service:applications:app-service [:app-service:co.com.jhompo.MainApplication.main()].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/HU-001-registro-de-usuarios&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\PRO\Microservices\scaffold-crediya\authentication-service\applications\app-service\src\main\resources" />
@@ -169,11 +167,6 @@
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/UserController.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/UserRepositoryAdapter.java</url>
           <line>52</line>
           <option name="timeStamp" value="12" />
@@ -182,21 +175,6 @@
           <url>file://$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/UserRepositoryAdapter.java</url>
           <line>45</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/UserController.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/UserController.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/UserController.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/UserRepositoryAdapter.java</url>
