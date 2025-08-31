@@ -8,6 +8,7 @@ CREATE TABLE users (
     base_salary numeric(10, 2) NULL,
     birth_date date NULL,
     identity_document varchar(20) NULL,
+    password varchar(20) NULL,
     CONSTRAINT users_email_key UNIQUE (email),
     CONSTRAINT users_identity_document_key UNIQUE (identity_document),
     CONSTRAINT users_pkey PRIMARY KEY (id)

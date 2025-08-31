@@ -46,15 +46,11 @@ public class UserEntity {
     @Column("identity_document")
     private String identityDocument;
 
-    public void setId(UUID id) {
-    }
-
-    public void setName(String testUser) {
-    }
-
-    /* @Column("password")
+    @Column("password")
     private String password;
 
+
+    /*
     @Column("created_at")
     private LocalDateTime createdAt;
 
