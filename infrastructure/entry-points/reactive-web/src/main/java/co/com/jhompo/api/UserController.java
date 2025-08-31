@@ -4,8 +4,10 @@ import co.com.jhompo.api.dtos.UserRequestDTO;
 import co.com.jhompo.api.dtos.UserResponseDTO;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.usecase.user.UserUseCase;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -22,9 +24,11 @@ public class UserController {
 
     private final UserUseCase userService;
     private final Logger log = LoggerFactory.getLogger(UserController.class);
+    private final ModelMapper mapper;
 
-    public UserController(UserUseCase userService) {
+    public UserController(UserUseCase userService, ModelMapper mapper) {
         this.userService = userService;
+        this.mapper = mapper;
     }
 
     @Operation(summary = "Buscar usuario por ID")
@@ -65,8 +69,7 @@ public class UserController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<Void> deleteById(@PathVariable("id") UUID id) {
-        log.info("*****Petición DELETE para eliminar un usuario.");
-        return null; //userService.deleteById(id);
+        return userService.deleteById(id);
     }
 
     @Operation(summary = "Verificar si existe usuario por documento")
@@ -77,7 +80,8 @@ public class UserController {
 
     @Operation(summary = "Verificar si existe usuario por email")
     @GetMapping("/email/{email}")
-    public Mono<Boolean> checkUserExistsByEmail(@PathVariable("email") String email) {
-        return userService.checkUserExistsByEmail(email);
+    public Mono<UserResponseDTO> checkUserExistsByEmail(@PathVariable("email") String email) {
+        return userService.checkUserExistsByEmail(email)
+                .map(user -> mapper.map(user, UserResponseDTO.class));
     }
 }

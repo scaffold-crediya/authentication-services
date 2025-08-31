@@ -29,7 +29,8 @@ public class UserUseCase {
     public Mono<User> createUser(User user) {
         return validateUser(user)
                 .flatMap(validatedUser ->
-                        userRepository.existsByEmail(validatedUser.getEmail())
+                        userRepository.findByEmail(validatedUser.getEmail())
+                        .hasElement()
                         .flatMap(emailExists -> {
                             if (emailExists) {
                                 return Mono.error(new IllegalArgumentException("El correo electrónico ya está registrado."));
@@ -66,7 +67,7 @@ public class UserUseCase {
                 });
     }
 
-    public Mono<Boolean> deleteById(UUID id) {
+    public Mono<Void> deleteById(UUID id) {
         return userRepository.deleteById(id);
     }
 
@@ -74,8 +75,8 @@ public class UserUseCase {
         return userRepository.existsByIdentityDocument(identityDocument);
     }
 
-    public Mono<Boolean> checkUserExistsByEmail(String email) {
-        return userRepository.existsByEmail(email);
+    public Mono<User> checkUserExistsByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     private Mono<User> validateUser(User user) {
