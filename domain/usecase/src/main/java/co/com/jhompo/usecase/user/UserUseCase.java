@@ -29,23 +29,29 @@ public class UserUseCase {
     }
 
     public Mono<User> createUser(User user) {
+        // La contraseña original (sin hashear) se usa para las validaciones
         return validateUser(user)
                 .flatMap(validatedUser ->
                         userRepository.findByEmail(validatedUser.getEmail())
-                        .hasElement()
-                        .flatMap(emailExists -> {
-                            if (emailExists) {
-                                return Mono.error(new IllegalArgumentException("El correo electrónico ya está registrado."));
-                            }
-                            return userRepository.existsByIdentityDocument(validatedUser.getIdentityDocument())
-                                    .flatMap(docExists -> {
-                                        if (docExists) {
-                                            return Mono.error(new IllegalArgumentException("El documento de identidad ya está registrado."));
-                                        }
-                                        return Mono.just(validatedUser);
-                                    });
-                        }))
-                .flatMap(userRepository::save);
+                                .hasElement()
+                                .flatMap(emailExists -> {
+                                    if (emailExists) {
+                                        return Mono.error(new IllegalArgumentException("El correo electrónico ya está registrado."));
+                                    }
+                                    return userRepository.existsByIdentityDocument(validatedUser.getIdentityDocument())
+                                            .flatMap(docExists -> {
+                                                if (docExists) {
+                                                    return Mono.error(new IllegalArgumentException("El documento de identidad ya está registrado."));
+                                                }
+                                                // 1. Una vez que todas las validaciones han pasado, hasheamos la contraseña.
+                                                String hashedPassword = passwordEncoder.encode(validatedUser.getPassword());
+                                                User userToSave = validatedUser.toBuilder()
+                                                        .password(hashedPassword).build();
+
+                                                // 2. Finalmente, guardamos el usuario con la contraseña hasheada.
+                                                return userRepository.save(userToSave);
+                                            });
+                                }));
     }
 
     public Mono<User> updateUser(User user) {
