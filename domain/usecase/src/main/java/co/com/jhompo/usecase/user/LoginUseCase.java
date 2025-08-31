@@ -14,12 +14,12 @@ public class LoginUseCase {
 
     public Mono<User> execute(String email, String password) {
         return userRepository.findByEmail(email)
-               .switchIfEmpty(Mono.error(new RuntimeException("Authentication failed: User not found")))
+               .switchIfEmpty(Mono.error(new IllegalArgumentException("Authentication failed: User not found")))
                 .flatMap(user -> {
                     if (password.equals(user.getPassword())) {
                         return Mono.just(user);
                     } else {
-                        return Mono.error(new RuntimeException("Authentication failed: Invalid credentials"));
+                        return Mono.error(new IllegalArgumentException("Authentication failed: Invalid credentials"));
                     }
                 });
     }

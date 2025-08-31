@@ -3,6 +3,7 @@ package co.com.jhompo.usecase.user;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.model.user.gateways.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -15,6 +16,7 @@ import java.util.regex.Pattern;
 public class UserUseCase {
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
 
 
