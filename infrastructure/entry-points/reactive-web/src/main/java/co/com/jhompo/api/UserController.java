@@ -4,6 +4,8 @@ import co.com.jhompo.api.dtos.UserRequestDTO;
 import co.com.jhompo.api.dtos.UserResponseDTO;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.usecase.user.UserUseCase;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -15,6 +17,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/usuarios")
+@Tag(name = "Usuarios", description = "Gestión de usuarios")
 public class UserController {
 
     private final UserUseCase userService;
@@ -24,18 +27,19 @@ public class UserController {
         this.userService = userService;
     }
 
-
+    @Operation(summary = "Buscar usuario por ID")
     @GetMapping("/{id}")
-    public Mono<UserResponseDTO> findById(@PathVariable("id")  UUID id) {
+    public Mono<UserResponseDTO> findById(@PathVariable("id") UUID id) {
         return userService.findById(id).map(UserResponseDTO::toDomain);
     }
 
+    @Operation(summary = "Listar todos los usuarios")
     @GetMapping
     public Flux<User> findAll() {
         return userService.findAll();
     }
 
-
+    @Operation(summary = "Crear nuevo usuario")
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<UserResponseDTO> createUser(@RequestBody UserRequestDTO dto) {
@@ -44,6 +48,7 @@ public class UserController {
                 .map(UserResponseDTO::toDomain);
     }
 
+    @Operation(summary = "Actualizar usuario")
     @PutMapping("/{id}")
     public Mono<UserResponseDTO> updateUser(@PathVariable(value = "id") UUID id, @RequestBody UserRequestDTO dto) {
         log.info("*****Petición PUT para actualizar usuario.");
@@ -56,6 +61,7 @@ public class UserController {
                 .doOnError(e -> log.error("Error al actualiar el usuario: {}", user.getEmail(), e));
     }
 
+    @Operation(summary = "Eliminar usuario")
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Mono<Void> deleteById(@PathVariable("id") UUID id) {
@@ -63,12 +69,13 @@ public class UserController {
         return null; //userService.deleteById(id);
     }
 
-
+    @Operation(summary = "Verificar si existe usuario por documento")
     @GetMapping("/existe/{documentoIdentidad}")
     public Mono<Boolean> checkUserExists(@PathVariable("documentoIdentidad") String documentoIdentidad) {
         return userService.checkUserExistsByDocument(documentoIdentidad);
     }
 
+    @Operation(summary = "Verificar si existe usuario por email")
     @GetMapping("/email/{email}")
     public Mono<Boolean> checkUserExistsByEmail(@PathVariable("email") String email) {
         return userService.checkUserExistsByEmail(email);
