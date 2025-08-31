@@ -37,21 +37,24 @@ public class UserRepositoryAdapter
     }
 
     @Override
-    public Mono<Boolean> deleteById(UUID id) {
-        return null; //repository.findById(id);
+    public Mono<Void> deleteById(UUID id) {
+        return repository.deleteById(id)
+                .doOnSuccess(u -> log.info("Eliminado Satisfactoriamente", u))
+                .doOnError(e -> log.error("Error", id, e));
     }
 
     @Override
-    public Mono<Boolean> existsByEmail(String email) {
-        return repository.existsByEmail(email)
-                .doOnSuccess(u -> log.info("Guardado en BD: {}", u))
-                .doOnError(e -> log.error("Error al guardar el usuario: {}", email, e));
+    public Mono<User> findByEmail(String email) {
+        return repository.findByEmail(email)
+                .map(userEntity -> mapper.map(userEntity, User.class))
+                .doOnSuccess(u -> log.info("Existe correo en BD: {}", u))
+                .doOnError(e -> log.error("Error al consultar usuario por correo: {}", email, e));
     }
 
     @Override
     public Mono<Boolean> existsByIdentityDocument(String identityDocument) {
         return repository.existsByIdentityDocument(identityDocument)
-                .doOnSuccess(u -> log.info("Guardado en BD: {}", u))
-                .doOnError(e -> log.error("Error al guardar el usuario: {}", identityDocument, e));
+                .doOnSuccess(u -> log.info("Existe Documento BD: {}", u))
+                .doOnError(e -> log.error("Error al consultar usuario por documento: {}", identityDocument, e));
     }
 }
