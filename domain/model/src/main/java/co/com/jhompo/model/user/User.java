@@ -20,4 +20,6 @@ public class User {
     private  BigDecimal baseSalary;
     private  LocalDate birthDate;
     private  String identityDocument;
+    private  String password;
+
 }

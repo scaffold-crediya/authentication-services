@@ -14,9 +14,9 @@ public interface UserRepository {
 
     Flux<User> findAll();
 
-    Mono<Boolean> deleteById(UUID id);
+    Mono<Void> deleteById(UUID id);
 
-    Mono<Boolean> existsByEmail(String email);
+    Mono<User> findByEmail(String email);
 
     Mono<Boolean> existsByIdentityDocument(String identityDocument);
 }
