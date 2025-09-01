@@ -1,9 +1,9 @@
 package co.com.jhompo.usecase.user;
 
+import co.com.jhompo.model.security.PasswordEncoderService;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.model.user.gateways.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -16,9 +16,8 @@ import java.util.regex.Pattern;
 public class UserUseCase {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
-
+    private final PasswordEncoderService passwordEncoder;
 
     public Mono<User> findById(UUID id) {
         return userRepository.findById(id);
@@ -29,7 +28,7 @@ public class UserUseCase {
     }
 
     public Mono<User> createUser(User user) {
-        // La contraseña original (sin hashear) se usa para las validaciones
+
         return validateUser(user)
                 .flatMap(validatedUser ->
                         userRepository.findByEmail(validatedUser.getEmail())
@@ -43,16 +42,16 @@ public class UserUseCase {
                                                 if (docExists) {
                                                     return Mono.error(new IllegalArgumentException("El documento de identidad ya está registrado."));
                                                 }
-                                                // 1. Una vez que todas las validaciones han pasado, hasheamos la contraseña.
                                                 String hashedPassword = passwordEncoder.encode(validatedUser.getPassword());
                                                 User userToSave = validatedUser.toBuilder()
-                                                        .password(hashedPassword).build();
+                                                        .password(hashedPassword)
+                                                        .build();
 
-                                                // 2. Finalmente, guardamos el usuario con la contraseña hasheada.
                                                 return userRepository.save(userToSave);
                                             });
                                 }));
     }
+
 
     public Mono<User> updateUser(User user) {
         if (user.getId() == null) {

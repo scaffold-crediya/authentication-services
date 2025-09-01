@@ -15,6 +15,7 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalErrorHandler {
 
+
     // Maneja errores de datos incorrectos (ej. validaciones de campos)
     @ExceptionHandler(IllegalArgumentException.class)
     public Mono<ResponseEntity<ErrorResponse>> handleIllegalArgumentException(IllegalArgumentException ex, ServerWebExchange exchange) {
