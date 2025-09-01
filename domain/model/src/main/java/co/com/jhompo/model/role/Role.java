@@ -1,6 +1,6 @@
 package co.com.jhompo.model.role;
 import lombok.*;
-
+//import lombok.NoArgsConstructor;
 
 
 @Data

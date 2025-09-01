@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -43,9 +42,7 @@ public class RoleController {
     @GetMapping("/{id}")
     public Mono<RoleDTO> getById(@PathVariable Integer id) {
         return roleUseCase.getRoleById(id)
-                .map(role->mapper.map(role, RoleDTO.class))
-                .switchIfEmpty(Mono.error(new ResponseStatusException(HttpStatus.NOT_FOUND, "Role with id " + id + " not found.")));
-
+                .map(role->mapper.map(role, RoleDTO.class));
     }
 
     @Operation(summary = "Actualizar rol existente")
