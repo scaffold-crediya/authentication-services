@@ -17,9 +17,7 @@ import java.util.Map;
 @ControllerAdvice
 public class GlobalErrorHandler {
 
-    /**
-     * Método utilitario genérico para construir la respuesta de error.
-     */
+    //Metodo utilitario genérico para construir la respuesta de error
     private Mono<ResponseEntity<ErrorResponse>> buildErrorResponse( HttpStatus status, String error, String message, String path ) {
         ErrorResponse response = new ErrorResponse(
                 LocalDateTime.now().toString(),
