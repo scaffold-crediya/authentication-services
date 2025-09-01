@@ -9,10 +9,14 @@ import reactor.core.publisher.Mono;
 
 import java.util.UUID;
 
-@RequiredArgsConstructor
+
 public class RoleUseCase {
 
     private final RoleRepository rolRepository;
+
+    public RoleUseCase(RoleRepository repository) {
+        this.rolRepository = repository;
+    }
 
 
     public Mono<Role> findById(UUID id) {
@@ -30,10 +34,7 @@ public class RoleUseCase {
             return Mono.error(new IllegalArgumentException("El nombre del rol es obligatorio."));
         }
 
-        return rolRepository.findByName(rol.getName())
-                .flatMap(foundRol -> Mono.error(new IllegalArgumentException("El nombre de rol ya existe.")))
-                .switchIfEmpty(Mono.defer(() -> rolRepository.save(rol)))
-                .cast(Role.class);
+        return rolRepository.save(rol).cast(Role.class);
     }
 
     public Mono<Role> updatedRol(Role rol) {
