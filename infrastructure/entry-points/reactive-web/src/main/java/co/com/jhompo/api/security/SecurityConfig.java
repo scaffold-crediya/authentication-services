@@ -1,5 +1,6 @@
 package co.com.jhompo.api.security;
 
+import co.com.jhompo.api.handler.CustomAccessDeniedHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
@@ -28,8 +29,12 @@ public class SecurityConfig {
                                 "/webjars/**"
                         ).permitAll()
                         .pathMatchers("/api/v1/login", "/api/v1/usuarios/registrar").permitAll()
+                        //Rutas restringidas por rol
+                        .pathMatchers("/api/v1/usuarios/**").hasAuthority("ADMIN")
+                        .pathMatchers("/api/v1/roles/**").hasAuthority("ADMIN")
                         .anyExchange().authenticated()
                 )
+                .exceptionHandling(e -> e.accessDeniedHandler(new CustomAccessDeniedHandler()))
                 .addFilterAt(jwtAuthenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
                 .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
                 .formLogin(ServerHttpSecurity.FormLoginSpec::disable)

@@ -1,6 +1,8 @@
 package co.com.jhompo.model.security;
 
+import reactor.core.publisher.Mono;
+
 public interface PasswordEncoderService {
-    String encode(String rawPassword);
-    boolean matches(String rawPassword, String encodedPassword);
+    Mono<String> encode(CharSequence rawPassword);
+    Mono<Boolean> matches(CharSequence rawPassword, String encodedPassword);
 }
