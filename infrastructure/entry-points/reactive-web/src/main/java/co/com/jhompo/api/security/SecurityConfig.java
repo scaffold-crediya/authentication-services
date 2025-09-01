@@ -28,9 +28,7 @@ public class SecurityConfig {
                                 "/swagger-ui.html",
                                 "/webjars/**"
                         ).permitAll()
-                        .pathMatchers("/api/v1/login",
-                                "/api/v1/usuarios/registrar",
-                                "/api/v1/usuarios/email/**").permitAll()
+                        .pathMatchers("/api/v1/login", "/api/v1/usuarios/registrar").permitAll()
                         //Rutas restringidas por rol
                         .pathMatchers("/api/v1/usuarios/**").hasAuthority("ADMIN")
                         .pathMatchers("/api/v1/roles/**").hasAuthority("ADMIN")
