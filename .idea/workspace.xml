@@ -5,26 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d17807a1-2099-4c0b-8adf-03c50ea72497" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/common/Messages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/usecase/src/test/java/co/com/jhompo/usecase/role/RoleUseCaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/usecase/src/test/java/co/com/jhompo/usecase/user/LoginUseCaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/usecase/src/test/java/co/com/jhompo/usecase/user/UserUseCaseTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/co/com/jhompo/r2dbc/user/UserRepositoryAdapterTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/LoginControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/RoleControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/UserControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/role/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/role/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/entity/UserEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/entity/UserEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/RoleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/dtos/user/UserRequestDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/dtos/user/UserRequestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/dtos/user/UserResponseDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/dtos/user/UserResponseDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/GlobalErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/GlobalErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/CustomAccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/CustomAccessDeniedHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/ApiRestTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/config/ConfigTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +76,7 @@
     "Gradle.LoginUseCaseTest.executor": "Run",
     "Gradle.RoleControllerTest.executor": "Run",
     "Gradle.RoleUseCaseTest.executor": "Run",
+    "Gradle.UserControllerTest.executor": "Run",
     "Gradle.UserReactiveRepositoryAdapterTest.mustFindValueById.executor": "Run",
     "Gradle.UserRepositoryAdapterTest.executor": "Run",
     "Gradle.UserUseCaseTest.executor": "Run",
@@ -268,16 +254,6 @@
           <url>file://$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/UserUseCase.java</url>
           <line>31</line>
           <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtProvider.java</url>
-          <line>43</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtProvider.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
