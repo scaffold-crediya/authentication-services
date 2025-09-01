@@ -2,6 +2,7 @@ package co.com.jhompo.api.dtos.user;
 
 import co.com.jhompo.model.user.User;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class UserRequestDTO {
 
     private String firstName;
