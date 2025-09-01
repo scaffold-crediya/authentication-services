@@ -1,5 +1,7 @@
 package co.com.jhompo.api.security;
 
+import co.com.jhompo.model.role.Role;
+import co.com.jhompo.model.role.gateways.RoleRepository;
 import co.com.jhompo.model.user.User;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.crypto.SecretKey;
 import java.util.Base64;
 import java.util.Date;
+import java.util.List;
 
 
 @Component
@@ -25,14 +28,28 @@ public class JwtProvider {
     }
 
 
+    private final RoleRepository roleRepository; // Inyectar repository
+
+    // Constructor
+    public JwtProvider(RoleRepository roleRepository) {
+        this.roleRepository = roleRepository;
+    }
+
     // Generar token
     public String generateToken(User user) {
         Date now = new Date();
         Date expiryDate = new Date(now.getTime() + expirationTime);
 
+        // Consultar el nombre del rol desde la BD
+        String roleName = roleRepository.findById(user.getRoleId())
+                .map(Role::getName)
+                .block(); // Solo para JWT generation
+
         return Jwts.builder()
                 .setSubject(user.getEmail())
-                .claim("role", "Client") //  user.getRoles()
+                .claim("role", roleName.toUpperCase())
+                .claim("roleId", user.getRoleId()) // 🔥 Usar el rol real del usuario
+                .claim("userId", user.getId())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
@@ -57,4 +74,17 @@ public class JwtProvider {
     }
 
 
+    public List<String> getRolesFromToken(String token) {
+        Claims claims = Jwts.parserBuilder()
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
+
+        String role = claims.get("role", String.class); // 👈 obtén como String
+        if (role == null) {
+            return List.of();
+        }
+        return List.of(role); // lo metemos en lista
+    }
 }
