@@ -42,12 +42,16 @@ public class UserUseCase {
                                                 if (docExists) {
                                                     return Mono.error(new IllegalArgumentException("El documento de identidad ya está registrado."));
                                                 }
-                                                String hashedPassword = passwordEncoder.encode(validatedUser.getPassword());
-                                                User userToSave = validatedUser.toBuilder()
-                                                        .password(hashedPassword)
-                                                        .build();
 
-                                                return userRepository.save(userToSave);
+                                                // aquí hacemos la encriptación de forma reactiva
+                                                return passwordEncoder.encode(validatedUser.getPassword())
+                                                        .flatMap(hashedPassword -> {
+                                                            User userToSave = validatedUser.toBuilder()
+                                                                    .password(hashedPassword)
+                                                                    .build();
+
+                                                            return userRepository.save(userToSave);
+                                                        });
                                             });
                                 }));
     }
