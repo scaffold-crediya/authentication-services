@@ -1,4 +1,4 @@
-package co.com.jhompo.api.dtos;
+package co.com.jhompo.api.dtos.user;
 
 import co.com.jhompo.model.user.User;
 import lombok.AllArgsConstructor;

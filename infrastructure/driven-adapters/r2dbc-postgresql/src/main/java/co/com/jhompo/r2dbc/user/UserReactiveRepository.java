@@ -1,4 +1,4 @@
-package co.com.jhompo.r2dbc;
+package co.com.jhompo.r2dbc.user;
 
 import co.com.jhompo.r2dbc.entity.UserEntity;
 import org.springframework.data.repository.query.ReactiveQueryByExampleExecutor;

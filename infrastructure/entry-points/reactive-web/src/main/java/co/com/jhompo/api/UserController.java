@@ -1,10 +1,9 @@
 package co.com.jhompo.api;
 
-import co.com.jhompo.api.dtos.UserRequestDTO;
-import co.com.jhompo.api.dtos.UserResponseDTO;
+import co.com.jhompo.api.dtos.user.UserRequestDTO;
+import co.com.jhompo.api.dtos.user.UserResponseDTO;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.usecase.user.UserUseCase;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.modelmapper.ModelMapper;
@@ -44,7 +43,7 @@ public class UserController {
     }
 
     @Operation(summary = "Crear nuevo usuario")
-    @PostMapping
+    @PostMapping("/registrar")
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<UserResponseDTO> createUser(@RequestBody UserRequestDTO dto) {
         log.info("*****Peticion POST para registrar un nuevo usuario recibida.");
