@@ -22,5 +22,4 @@ public class User {
     private  String identityDocument;
     private  String password;
     private int roleId;
-
 }

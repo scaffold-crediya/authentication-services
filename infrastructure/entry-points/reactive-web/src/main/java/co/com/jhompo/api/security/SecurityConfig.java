@@ -29,11 +29,10 @@ public class SecurityConfig {
                                 "/webjars/**"
                         ).permitAll()
                         .pathMatchers("/api/v1/login",
-                                "/api/v1/usuarios/registrar",
-                                "/api/v1/usuarios/email/**").permitAll()
-                        //Rutas restringidas por rol
-                        .pathMatchers("/api/v1/usuarios/**").hasAuthority("ADMIN")
-                        .pathMatchers("/api/v1/roles/**").hasAuthority("ADMIN")
+                                      "/api/v1/usuarios/email/**").permitAll()
+                        .pathMatchers("/api/v1/usuarios/registrar").hasAnyAuthority("ADMIN","ASESOR")
+                        .pathMatchers("/api/v1/usuarios/**",
+                                       "/api/v1/roles/**").hasAuthority("ADMIN")
                         .anyExchange().authenticated()
                 )
                 .exceptionHandling(e -> e.accessDeniedHandler(new CustomAccessDeniedHandler()))
