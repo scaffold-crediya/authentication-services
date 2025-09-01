@@ -21,5 +21,6 @@ public class User {
     private  LocalDate birthDate;
     private  String identityDocument;
     private  String password;
+    private int roleId;
 
 }
