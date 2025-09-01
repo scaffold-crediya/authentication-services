@@ -2,7 +2,6 @@ package co.com.jhompo.r2dbc.role;
 
 import co.com.jhompo.model.role.Role;
 import co.com.jhompo.model.role.gateways.RoleRepository;
-import co.com.jhompo.model.user.User;
 import co.com.jhompo.r2dbc.entity.RoleEntity;
 import co.com.jhompo.r2dbc.helper.ReactiveAdapterOperations;
 import org.reactivecommons.utils.ObjectMapper;
