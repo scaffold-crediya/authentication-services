@@ -348,5 +348,4 @@ build/
 
 # Docker/Database data
 data_vol/
-/data_vol/
 data_vol/postgres-data/
