@@ -1,4 +1,4 @@
-package co.com.jhompo.api.dtos;
+package co.com.jhompo.api.dtos.user;
 
 import co.com.jhompo.model.user.User;
 import lombok.AllArgsConstructor;
@@ -22,6 +22,7 @@ public class UserRequestDTO {
     private LocalDate birthDate;
     private String identityDocument;
     private String password;
+    private int roleId;
 
 
     // Method to convert the DTO to a domain object
@@ -36,6 +37,7 @@ public class UserRequestDTO {
                 .birthDate(this.birthDate)
                 .identityDocument(this.identityDocument)
                 .password(this.password)
+                .roleId(roleId)
                 .build();
     }
 }

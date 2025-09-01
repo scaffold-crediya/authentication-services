@@ -49,6 +49,9 @@ public class UserEntity {
     @Column("password")
     private String password;
 
+    @Column("id_role")
+    private int roleId;
+
 
     /*
     @Column("created_at")
