@@ -15,7 +15,7 @@ public class RoleUseCase {
         // Regla de negocio: No permitir la creación de un estado con un nombre duplicado.
         return roleRepository.findByName(status.getName())
                 .flatMap(foundRole ->
-                        Mono.<Role>error(new IllegalArgumentException("Role with name '" + status.getName() + "' already exists."))
+                        Mono.<Role>error(new IllegalArgumentException("El Rol '" + status.getName() + "' already exists."))
                 )
                 .switchIfEmpty(
                         Mono.defer(() -> roleRepository.save(status))

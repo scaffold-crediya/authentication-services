@@ -5,15 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d17807a1-2099-4c0b-8adf-03c50ea72497" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/CustomAccessDeniedHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/security/PasswordEncoderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/security/PasswordEncoderService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/LoginUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/LoginUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/UserUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/UserUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/PasswordEncoderAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/PasswordEncoderAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/com/jhompo/MainApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/com/jhompo/config/ObjectMapperConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/com/jhompo/config/UseCasesConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/gateways/GenericRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/Role.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/role/gateways/RoleRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/com/jhompo/model/user/gateways/UserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/role/RoleUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/role/RoleUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/role/RoleUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/com/jhompo/usecase/user/UserUseCase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/role/RoleRepositoryAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/co/com/jhompo/r2dbc/role/RoleRepositoryAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/RoleReactiveRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/RoleRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/config/PostgreSQLConnectionPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/config/PostgresqlConnectionProperties.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/dtos/ErrorResponse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/entity/RoleEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/helper/ReactiveAdapterOperations.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/UserDataRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/UserRepositoryAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/main/java/com/jhompo/r2dbc/user/data/UserData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/com/jhompo/r2dbc/config/PostgreSQLConnectionPoolTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/com/jhompo/r2dbc/helper/ReactiveAdapterOperationsTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/RoleController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/UserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/config/CorsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/config/SecurityHeadersConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/dtos/UserRequestDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/com/jhompo/api/dtos/UserResponseDTO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/com/jhompo/api/ApiRestTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/com/jhompo/api/config/ConfigTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +120,7 @@
       <recent name="C:\PRO\Microservices\scaffold-crediya\authentication-service\infrastructure\entry-points\reactive-web\src\main\java\co\com\jhompo\api\dtos\rol" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\PRO\Microservices\scaffold-crediya\authentication-service\domain\model\src\main\java" />
       <recent name="C:\PRO\Microservices\scaffold-crediya\authentication-service\applications\app-service\src\main\resources" />
     </key>
   </component>
