@@ -19,8 +19,9 @@ public class UserRequestDTO {
     private String phoneNumber;
     private String email;
     private BigDecimal baseSalary;
-    private LocalDate dateBirth;
+    private LocalDate birthDate;
     private String identityDocument;
+    private String password;
 
 
     // Method to convert the DTO to a domain object
@@ -32,7 +33,9 @@ public class UserRequestDTO {
                 .phoneNumber(this.phoneNumber)
                 .email(this.email)
                 .baseSalary(this.baseSalary)
-                .birthDate(this.dateBirth)
-                .identityDocument(this.identityDocument).build();
+                .birthDate(this.birthDate)
+                .identityDocument(this.identityDocument)
+                .password(this.password)
+                .build();
     }
 }

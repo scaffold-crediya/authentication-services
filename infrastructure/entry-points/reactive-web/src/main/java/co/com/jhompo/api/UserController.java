@@ -44,7 +44,7 @@ public class UserController {
     }
 
     @Operation(summary = "Crear nuevo usuario")
-    @PostMapping
+    @PostMapping("/registrar")
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<UserResponseDTO> createUser(@RequestBody UserRequestDTO dto) {
         log.info("*****Peticion POST para registrar un nuevo usuario recibida.");
