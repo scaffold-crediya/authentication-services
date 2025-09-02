@@ -1,5 +1,6 @@
 package co.com.jhompo.api.security;
 
+import co.com.jhompo.common.Messages;
 import co.com.jhompo.model.role.Role;
 import co.com.jhompo.model.role.gateways.RoleRepository;
 import co.com.jhompo.model.user.User;
@@ -13,6 +14,9 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
+import static co.com.jhompo.common.Messages.JWT.*;
+import static co.com.jhompo.common.Messages.ROLE.*;
+
 
 @Component
 public class JwtProvider {
@@ -23,12 +27,12 @@ public class JwtProvider {
     @Value("${security.jwt.expiration-time}")
     private long expirationTime; // en milisegundos (ej: 3600000 = 1 hora)
 
-    private SecretKey getSigningKey() {
-        return Keys.hmacShaKeyFor(Base64.getDecoder().decode(secretKey));
-    }
-
 
     private final RoleRepository roleRepository; // Inyectar repository
+
+        private SecretKey getSigningKey() {
+        return Keys.hmacShaKeyFor(Base64.getDecoder().decode(secretKey));
+    }
 
     // Constructor
     public JwtProvider(RoleRepository roleRepository) {
@@ -47,9 +51,9 @@ public class JwtProvider {
 
         return Jwts.builder()
                 .setSubject(user.getEmail())
-                .claim("role", roleName.toUpperCase())
-                .claim("roleId", user.getRoleId()) // 🔥 Usar el rol real del usuario
-                .claim("userId", user.getId())
+                .claim(ROLE, roleName.toUpperCase())
+                .claim(ROLE_ID, user.getRoleId()) // 🔥 Usar el rol real del usuario
+                .claim(USER_ID, user.getId())
                 .setIssuedAt(now)
                 .setExpiration(expiryDate)
                 .signWith(getSigningKey(), SignatureAlgorithm.HS256)
@@ -62,7 +66,7 @@ public class JwtProvider {
             Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
             return true;
         } catch (JwtException | IllegalArgumentException e) {
-            System.out.println("Invalid JWT token: " + e.getMessage());
+            System.out.println(INVALID_TOKEN + e.getMessage());
             return false;
         }
     }
@@ -81,7 +85,7 @@ public class JwtProvider {
                 .parseClaimsJws(token)
                 .getBody();
 
-        String role = claims.get("role", String.class); // 👈 obtén como String
+        String role = claims.get(ROLE, String.class); // 👈 obtén como String
         if (role == null) {
             return List.of();
         }

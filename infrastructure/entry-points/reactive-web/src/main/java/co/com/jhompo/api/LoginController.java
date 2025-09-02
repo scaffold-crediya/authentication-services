@@ -17,6 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+import static co.com.jhompo.common.Messages.HTTP.*;
+import static co.com.jhompo.common.Messages.SYSTEM.*;
+import static co.com.jhompo.common.Messages.USER.*;
+
 @RestController
 @RequestMapping("/api/v1/login")
 @RequiredArgsConstructor
@@ -27,15 +31,15 @@ public class LoginController {
     private final JwtProvider jwtProvider;
 
     @Operation(
-            summary = "Autenticar un usuario",
-            description = "Recibe las credenciales del usuario (email y contraseña) y devuelve un token JWT si la autenticación es exitosa."
+            summary = AUTHENTICATION_USER,
+            description = AUTH_DESCRIPTION
     )
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Autenticación Exitosa",
-                    content = { @Content(mediaType = "application/json",
+            @ApiResponse(responseCode = CODE_200, description = AUTHENTICATION_SUCCESS,
+                    content = { @Content(mediaType = MEDIA_TYPE,
                             schema = @Schema(implementation = LoginResponseDTO.class)) }),
-            @ApiResponse(responseCode = "401", description = "No Autorizado - Credenciales inválidas", content = @Content),
-            @ApiResponse(responseCode = "500", description = "Error Interno del Servidor", content = @Content)
+            @ApiResponse(responseCode = CODE_401, description = UNAUTHORIZED  +" - " +  INVALID_CREDENTIALS, content = @Content),
+            @ApiResponse(responseCode = CODE_500, description = INTERNAL_ERROR, content = @Content)
     })
     @PostMapping
     public Mono<LoginResponseDTO> login(@RequestBody LoginRequestDTO request) {
