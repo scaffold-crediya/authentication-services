@@ -7,6 +7,8 @@ import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 
+import static co.com.jhompo.common.Messages.ROLE.*;
+
 @Configuration
 public class SecurityConfig {
 
@@ -30,9 +32,9 @@ public class SecurityConfig {
                         ).permitAll()
                         .pathMatchers("/api/v1/login",
                                       "/api/v1/usuarios/email/**").permitAll()
-                        .pathMatchers("/api/v1/usuarios/registrar").hasAnyAuthority("ADMIN","ASESOR")
+                        .pathMatchers("/api/v1/usuarios/registrar").hasAnyAuthority(ADMIN,ASESOR)
                         .pathMatchers("/api/v1/usuarios/**",
-                                       "/api/v1/roles/**").hasAuthority("ADMIN")
+                                       "/api/v1/roles/**").hasAuthority(ADMIN)
                         .anyExchange().authenticated()
                 )
                 .exceptionHandling(e -> e.accessDeniedHandler(new CustomAccessDeniedHandler()))

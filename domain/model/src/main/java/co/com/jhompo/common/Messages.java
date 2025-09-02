@@ -8,6 +8,7 @@ public final class Messages {
     // MENSAJES DE JWT/SECURITY
     // ============================================
     public static final class JWT {
+        public static final String BEARER ="Bearer "; //mantener espacio
         public static final String INVALID_TOKEN = "Token JWT inválido";
         public static final String TOKEN_EXPIRED = "Token JWT expirado";
         public static final String TOKEN_MALFORMED = "Token JWT mal formado";
@@ -15,7 +16,7 @@ public final class Messages {
         public static final String TOKEN_GENERATION_ERROR = "Error al generar el token JWT";
         public static final String TOKEN_VALIDATION_SUCCESS = "Token JWT válido";
         public static final String TOKEN_NOT_PROVIDED = "Token JWT no proporcionado";
-        public static final String UNAUTHORIZED_ACCESS = "Acceso no autorizado";
+        public static final String UNAUTHORIZED_ACCESS = "Acceso no autorizado: no tienes permisos suficientes para acceder a este recurso.";
         public static final String FORBIDDEN_ACCESS = "Acceso prohibido";
 
         private JWT() {}
@@ -33,11 +34,16 @@ public final class Messages {
         public static final String LOGOUT_SUCCESS = "Cierre de sesión exitoso";
         public static final String PROFILE_RETRIEVED = "Perfil obtenido exitosamente";
         public static final String PASSWORD_CHANGED = "Contraseña cambiada exitosamente";
+        public static final String AUTHENTICATION_USER = "Autenticar Usuario";
+        public static final String AUTH_DESCRIPTION =  "Recibe las credenciales del usuario (email y contraseña) y devuelve un token JWT si la autenticación es exitosa.";
+
 
         // Errores
-        public static final String NOT_FOUND = "Usuario no encontrado";
+        public static final String USER_NOT_FOUND = "Usuario no encontrado";
         public static final String ALREADY_EXISTS = "El usuario ya existe";
+        public static final String DOCUMENT_EXISTS = "El documento de identidad ya está registrado";
         public static final String EMAIL_ALREADY_EXISTS = "El email ya está registrado";
+        public static final String EMAIL_REGEX ="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$";
         public static final String INVALID_CREDENTIALS = "Credenciales inválidas";
         public static final String INACTIVE_USER = "Usuario inactivo";
         public static final String CREATION_FAILED = "Error al crear el usuario";
@@ -46,12 +52,16 @@ public final class Messages {
         public static final String PASSWORD_CHANGE_FAILED = "Error al cambiar la contraseña";
 
         // Validaciones
-        public static final String EMAIL_REQUIRED = "El email es requerido";
+        public static final String ID_REQUIRED = "El Id es requerido";
+        public static final String EMAIL_REQUIRED = "El Email es requerido";
+        public static final String SALARY_BASE_REQUIRED = "El salario base es requerido";
+        public static final String SALARY_BASE_RULE ="El salario base debe ser un valor numérico entre 0 y 1.500.000";
+        public static final String NAME_REQUIRED = "El nombre es requerido";
+        public static final String LASTNAME_REQUIRED = "El apellido es requerido";
         public static final String EMAIL_INVALID = "Formato de email inválido";
         public static final String PASSWORD_REQUIRED = "La contraseña es requerida";
         public static final String PASSWORD_TOO_SHORT = "La contraseña debe tener al menos 8 caracteres";
         public static final String PASSWORD_TOO_WEAK = "La contraseña debe contener mayúsculas, minúsculas y números";
-        public static final String NAME_REQUIRED = "El nombre es requerido";
         public static final String NAME_TOO_SHORT = "El nombre debe tener al menos 2 caracteres";
         public static final String ROLE_REQUIRED = "El rol es requerido";
         public static final String CURRENT_PASSWORD_INCORRECT = "La contraseña actual es incorrecta";
@@ -64,6 +74,9 @@ public final class Messages {
     // ============================================
     public static final class ROLE {
         // Éxito
+        public static final String USER_ID ="userId";
+        public static final String ROLE_ID ="roleId";
+        public static final String ROLE ="role";
         public static final String ADMIN = "ADMIN";
         public static final String ASESOR = "ASESOR";
         public static final String CLIENTE = "CLIENTE";
@@ -73,9 +86,9 @@ public final class Messages {
         public static final String RETRIEVED_SUCCESS = "Roles obtenidos exitosamente";
 
         // Errores
-        public static final String NOT_FOUND = "Rol no encontrado";
-        public static final String ALREADY_EXISTS = "El rol ya existe";
-        public static final String NAME_ALREADY_EXISTS = "Ya existe un rol con ese nombre";
+        public static final String ROL_NOT_FOUND = "Rol no encontrado";
+        public static final String ROL_EXISTS = "El rol ya existe";
+        public static final String ROL_NAME_ALREADY_EXISTS = "Ya existe un rol con ese nombre";
         public static final String CREATION_FAILED = "Error al crear el rol";
         public static final String UPDATE_FAILED = "Error al actualizar el rol";
         public static final String DELETE_FAILED = "Error al eliminar el rol";
@@ -119,14 +132,23 @@ public final class Messages {
         public static final String CACHE_CLEARED = "Caché limpiado exitosamente";
 
         // Errores
+        public static final String ERROR="error";
+        public static final String MESSAGE="message";
+        public static final String UNEXPECTED_ERROR = "Ocurrió un error inesperado. Por favor, inténtelo de nuevo más tarde";
+
         public static final String INTERNAL_ERROR = "Error interno del servidor";
-        public static final String DATABASE_ERROR = "Error de conexión a la base de datos";
+        public static final String AUTHENTICATION_SUCCESS = "Autenticación Exitosa";
+        public static final String OPERATION_DB_ERROR = "Error en la operación de base de datos: ";
+        public static final String DATABASE_ERROR = "Error de base de datos";
+        public static final String INTEGRITY_VIOLATION = "Data integrity violation";
+        public static final String INTEGRITY_ERROR = "Se produjo un error de integridad de datos";
+        public static final String EXIST_OR_INTEGRITY_VIOLATION ="El registro ya existe o viola una restricción de la base de datos";
         public static final String NETWORK_ERROR = "Error de conexión de red";
         public static final String SERVICE_UNAVAILABLE = "Servicio no disponible";
         public static final String TIMEOUT_ERROR = "Tiempo de espera agotado";
         public static final String VALIDATION_ERROR = "Error de validación";
-        public static final String SERIALIZATION_ERROR = "Error de serialización";
-        public static final String DESERIALIZATION_ERROR = "Error de deserialización";
+        public static final String DUPLICATE_KEY_ERROR = "Duplicate Key";
+        public static final String VALIDATE_KEY_ERROR = "Validate Key";
 
         // Validaciones generales
         public static final String REQUIRED_FIELD = "Campo requerido";
@@ -172,6 +194,13 @@ public final class Messages {
     // MENSAJES HTTP/API
     // ============================================
     public static final class HTTP {
+        public static final String CODE_200 = "200";
+        public static final String CODE_201 = "201";
+        public static final String CODE_300 = "300";
+        public static final String CODE_400 = "400";
+        public static final String CODE_401 = "401";
+        public static final String CODE_500 = "500";
+        public static final String MEDIA_TYPE = "application/json";
         public static final String BAD_REQUEST = "Solicitud incorrecta";
         public static final String UNAUTHORIZED = "No autorizado";
         public static final String FORBIDDEN = "Prohibido";
