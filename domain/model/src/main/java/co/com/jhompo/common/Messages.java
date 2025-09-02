@@ -64,6 +64,9 @@ public final class Messages {
     // ============================================
     public static final class ROLE {
         // Éxito
+        public static final String ADMIN = "ADMIN";
+        public static final String ASESOR = "ASESOR";
+        public static final String CLIENTE = "CLIENTE";
         public static final String CREATED_SUCCESS = "Rol creado exitosamente";
         public static final String UPDATED_SUCCESS = "Rol actualizado exitosamente";
         public static final String DELETED_SUCCESS = "Rol eliminado exitosamente";
@@ -189,94 +192,3 @@ public final class Messages {
     }
 }
 
-// ============================================
-// EJEMPLO DE USO EN USE CASE
-// ============================================
-/*
-@Component
-public class CreateUserUseCase {
-
-    public User execute(CreateUserCommand command) {
-        // Validaciones
-        if (command.getEmail() == null || command.getEmail().trim().isEmpty()) {
-            throw new ValidationException(Messages.USER.EMAIL_REQUIRED);
-        }
-
-        if (userRepository.findByEmail(command.getEmail()).isPresent()) {
-            throw new BusinessException(Messages.USER.EMAIL_ALREADY_EXISTS);
-        }
-
-        try {
-            User user = User.builder()
-                    .email(command.getEmail())
-                    .password(passwordEncoder.encode(command.getPassword()))
-                    .roleId(command.getRoleId())
-                    .build();
-
-            User savedUser = userRepository.save(user);
-
-            // Log o respuesta exitosa
-            log.info(Messages.USER.CREATED_SUCCESS + " - Email: {}", user.getEmail());
-
-            return savedUser;
-
-        } catch (Exception e) {
-            log.error(Messages.USER.CREATION_FAILED, e);
-            throw new TechnicalException(Messages.USER.CREATION_FAILED);
-        }
-    }
-}
-*/
-
-// ============================================
-// EJEMPLO DE USO EN CONTROLLER
-// ============================================
-/*
-@RestController
-public class UserController {
-
-    @PostMapping("/usuarios")
-    public ResponseEntity<ApiResponse<User>> createUser(@RequestBody CreateUserRequest request) {
-        try {
-            User user = createUserUseCase.execute(request.toCommand());
-
-            return ResponseEntity.ok(ApiResponse.<User>builder()
-                    .success(true)
-                    .message(Messages.USER.CREATED_SUCCESS)
-                    .data(user)
-                    .build());
-
-        } catch (ValidationException e) {
-            return ResponseEntity.badRequest().body(ApiResponse.<User>builder()
-                    .success(false)
-                    .message(e.getMessage()) // Ya contiene el mensaje de Messages.USER.*
-                    .build());
-        }
-    }
-}
-*/
-
-// ============================================
-// EJEMPLO DE USO EN JWT PROVIDER (TU ARCHIVO)
-// ============================================
-/*
-public boolean validateToken(String token) {
-    try {
-        Jwts.parserBuilder().setSigningKey(getSigningKey()).build().parseClaimsJws(token);
-        log.debug(Messages.JWT.TOKEN_VALIDATION_SUCCESS);
-        return true;
-    } catch (ExpiredJwtException e) {
-        log.error(Messages.JWT.TOKEN_EXPIRED + ": {}", e.getMessage());
-        return false;
-    } catch (MalformedJwtException e) {
-        log.error(Messages.JWT.TOKEN_MALFORMED + ": {}", e.getMessage());
-        return false;
-    } catch (SignatureException e) {
-        log.error(Messages.JWT.TOKEN_SIGNATURE_INVALID + ": {}", e.getMessage());
-        return false;
-    } catch (JwtException | IllegalArgumentException e) {
-        log.error(Messages.JWT.INVALID_TOKEN + ": {}", e.getMessage());
-        return false;
-    }
-}
-*/
