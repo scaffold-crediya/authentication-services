@@ -1,15 +1,20 @@
 package co.com.jhompo.api.handler;
 
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.MalformedJwtException;
 import io.r2dbc.spi.R2dbcDataIntegrityViolationException;
 import io.r2dbc.spi.R2dbcException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
+import java.security.SignatureException;
 import java.time.LocalDateTime;
 import java.util.Map;
 
@@ -33,6 +38,28 @@ public class GlobalErrorHandler {
         );
         return Mono.just(new ResponseEntity<>(response, status));
     }
+
+    @ExceptionHandler(SignatureException.class)
+    public Mono<ResponseEntity<ErrorResponse>> handleInvalidSignature(SignatureException ex, ServerHttpRequest request) {
+        return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Invalid token signature ", ex.getMessage(), request.getPath().toString());
+    }
+
+    @ExceptionHandler(MalformedJwtException.class)
+    public Mono<ResponseEntity<ErrorResponse>> handleMalformedToken(MalformedJwtException ex, ServerHttpRequest request) {
+        return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Malformed token ", ex.getMessage(), request.getPath().toString());
+    }
+
+    @ExceptionHandler(ExpiredJwtException.class)
+    public Mono<ResponseEntity<ErrorResponse>> handleExpiredToken(ExpiredJwtException ex, ServerHttpRequest request) {
+        return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Token expired ", ex.getMessage(), request.getPath().toString());
+    }
+
+    @ExceptionHandler(JwtException.class)
+    public Mono<ResponseEntity<ErrorResponse>> handleJwtException(JwtException ex, ServerHttpRequest request) {
+        return buildErrorResponse(HttpStatus.UNAUTHORIZED, "Invalid token ", ex.getMessage(), request.getPath().toString());
+    }
+
+
 
     // Maneja errores de datos incorrectos (ej. validaciones de campos)
     @ExceptionHandler(IllegalArgumentException.class)
