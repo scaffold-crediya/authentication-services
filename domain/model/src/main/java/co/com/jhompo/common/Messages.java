@@ -27,6 +27,7 @@ public final class Messages {
     // ============================================
     public static final class USER {
         // Éxito
+
         public static final String CREATED_SUCCESS = "Usuario creado exitosamente";
         public static final String UPDATED_SUCCESS = "Usuario actualizado exitosamente";
         public static final String DELETED_SUCCESS = "Usuario eliminado exitosamente";
@@ -37,9 +38,21 @@ public final class Messages {
         public static final String AUTHENTICATION_USER = "Autenticar Usuario";
         public static final String AUTH_DESCRIPTION =  "Recibe las credenciales del usuario (email y contraseña) y devuelve un token JWT si la autenticación es exitosa.";
 
+        public static final String TITLE = "Usuarios";
+        public static final String DESCRIPTION= "Gestión de usuarios";
+        public static final String DESCRIPTION_CREATE = "Crear nuevo usuario";
+        public static final String DESCRIPTION_UPDATE = "Actualizar usuario";
+        public static final String DESCRIPTION_DELETE=  "Eliminar usuario";
+        public static final String DESCRIPTION_GET_ALL=  "Listar todas los usuarios";
+        public static final String DESCRIPTION_FIND_BY_DOCUMENT = "Buscar usuario por documento";
+        public static final String DESCRIPTION_FIND_BY_EMAIL = "Buscar usuario por correo";
+        public static final String DESCRIPTION_FIND_LIST_EMAIL="Obtener detalles de múltiples usuarios por su email";
+        public static final String DESCRIPTION_FIND_BY_ID = "Buscar usuario por ID";
+        public static final String DESCRIPTION_GET_SUMMARY =  "Listar usuarios paginado y filtrado";
+
 
         // Errores
-        public static final String USER_NOT_FOUND = "Usuario no encontrado";
+        public static final String NOT_FOUND = "Usuario no encontrado";
         public static final String ALREADY_EXISTS = "El usuario ya existe";
         public static final String DOCUMENT_EXISTS = "El documento de identidad ya está registrado";
         public static final String EMAIL_ALREADY_EXISTS = "El email ya está registrado";
@@ -132,6 +145,7 @@ public final class Messages {
         public static final String CACHE_CLEARED = "Caché limpiado exitosamente";
 
         // Errores
+        public static final String OPERATION_ERROR= "Error, operación no realizada exitosamente";
         public static final String ERROR="error";
         public static final String MESSAGE="message";
         public static final String UNEXPECTED_ERROR = "Ocurrió un error inesperado. Por favor, inténtelo de nuevo más tarde";
@@ -151,7 +165,7 @@ public final class Messages {
         public static final String VALIDATE_KEY_ERROR = "Validate Key";
 
         // Validaciones generales
-        public static final String REQUIRED_FIELD = "Campo requerido";
+                public static final String REQUIRED_FIELD = "Campo requerido";
         public static final String INVALID_FORMAT = "Formato inválido";
         public static final String INVALID_ID = "ID inválido";
         public static final String INVALID_DATE = "Fecha inválida";

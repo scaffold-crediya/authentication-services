@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.UUID;
 
 @Data
 @NoArgsConstructor
@@ -30,6 +31,23 @@ public class UserRequestDTO {
     // Method to convert the DTO to a domain object
     public User toDomain() {
         return User.builder()
+                .firstName(this.firstName)
+                .lastName(this.lastName)
+                .address(this.address)
+                .phoneNumber(this.phoneNumber)
+                .email(this.email)
+                .baseSalary(this.baseSalary)
+                .birthDate(this.birthDate)
+                .identityDocument(this.identityDocument)
+                .password(this.password)
+                .roleId(roleId)
+                .build();
+    }
+
+    // Method to convert the DTO to a domain object
+    public User toDomainForUpdate(UUID id) {
+        return User.builder()
+                .id(id)
                 .firstName(this.firstName)
                 .lastName(this.lastName)
                 .address(this.address)
