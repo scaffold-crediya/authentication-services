@@ -13,6 +13,10 @@ import reactor.core.publisher.Mono;
 import java.time.LocalDateTime;
 import java.util.Map;
 
+import static co.com.jhompo.common.Messages.ROLE.*;
+import static co.com.jhompo.common.Messages.SYSTEM.*;
+import static co.com.jhompo.common.Messages.USER.*;
+
 
 @ControllerAdvice
 public class GlobalErrorHandler {
@@ -50,8 +54,8 @@ public class GlobalErrorHandler {
         if (errorMessage != null && errorMessage.contains("application_email_idx")) {
             return buildErrorResponse(
                     HttpStatus.CONFLICT,
-                    "Duplicate Key",
-                    "Ya existe una solicitud con este email para el tipo de préstamo seleccionado.",
+                    DUPLICATE_KEY_ERROR,
+                    EXIST_OR_INTEGRITY_VIOLATION,
                     exchange.getRequest().getURI().getPath()
             );
         }
@@ -59,8 +63,8 @@ public class GlobalErrorHandler {
         if   (errorMessage != null && errorMessage.contains("fk_id_role")){
             return buildErrorResponse(
                     HttpStatus.CONFLICT,
-                    "Validate Key",
-                    "El Rol ingresado no existe",
+                    VALIDATE_KEY_ERROR,
+                    ROL_NOT_FOUND,
                     exchange.getRequest().getURI().getPath()
             );
         }
@@ -68,8 +72,8 @@ public class GlobalErrorHandler {
         // Manejo genérico
         return buildErrorResponse(
                 HttpStatus.CONFLICT,
-                "Data integrity violation",
-                "El registro ya existe o viola una restricción de la base de datos.",
+                INTEGRITY_VIOLATION,
+                INTEGRITY_ERROR,
                 exchange.getRequest().getURI().getPath()
         );
     }
@@ -77,17 +81,17 @@ public class GlobalErrorHandler {
     @ExceptionHandler(R2dbcDataIntegrityViolationException.class)
     public ResponseEntity<Map<String, String>> handleDataIntegrity(R2dbcDataIntegrityViolationException ex) {
         String driverMessage = ex.getMessage();
-        String userMessage = "Se produjo un error de integridad de datos.";
+        String userMessage = INTEGRITY_ERROR;
 
         if (driverMessage != null && driverMessage.contains("users_identity_document_key")) {
-            userMessage = "El documento de identidad ya existe en otro usuario.";
+            userMessage = DOCUMENT_EXISTS;
         } else if (driverMessage != null && driverMessage.contains("users_email_key")) {
-            userMessage = "El correo electrónico ya está registrado.";
+            userMessage = EMAIL_ALREADY_EXISTS;
         }
 
         Map<String, String> body = Map.of(
-                "error", "Duplicate key violation",
-                "message", userMessage
+                ERROR, DUPLICATE_KEY_ERROR,
+                MESSAGE, userMessage
         );
 
         return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
@@ -96,8 +100,8 @@ public class GlobalErrorHandler {
     @ExceptionHandler(R2dbcException.class)
     public ResponseEntity<Map<String, String>> handleR2dbcException(R2dbcException ex) {
         Map<String, String> body = Map.of(
-                "error", "Database error",
-                "message", "Error en la operación de base de datos: " + ex.getMessage()
+                ERROR, DATABASE_ERROR,
+                MESSAGE, OPERATION_DB_ERROR + ex.getMessage()
         );
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(body);
@@ -118,7 +122,7 @@ public class GlobalErrorHandler {
         return buildErrorResponse(
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(),
-                "Ocurrió un error inesperado. Por favor, inténtelo de nuevo más tarde.",
+                UNEXPECTED_ERROR,
                 exchange.getRequest().getPath().toString()
         );
     }
