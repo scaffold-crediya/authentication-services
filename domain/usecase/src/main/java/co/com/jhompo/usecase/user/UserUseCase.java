@@ -8,17 +8,18 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-import static co.com.jhompo.common.Messages.USER.*;
+import static co.com.jhompo.common.Messages.*;
 
 
 @RequiredArgsConstructor
 public class UserUseCase {
 
     private final UserRepository userRepository;
-    private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(USER.EMAIL_REGEX);
     private final PasswordEncoderService passwordEncoder;
 
     public Mono<User> findById(UUID id) {
@@ -37,12 +38,12 @@ public class UserUseCase {
                                 .hasElement()
                                 .flatMap(emailExists -> {
                                     if (emailExists) {
-                                        return Mono.error(new IllegalArgumentException(EMAIL_ALREADY_EXISTS));
+                                        return Mono.error(new IllegalArgumentException(USER.EMAIL_ALREADY_EXISTS));
                                     }
                                     return userRepository.existsByIdentityDocument(validatedUser.getIdentityDocument())
                                             .flatMap(docExists -> {
                                                 if (docExists) {
-                                                    return Mono.error(new IllegalArgumentException(DOCUMENT_EXISTS));
+                                                    return Mono.error(new IllegalArgumentException(USER.DOCUMENT_EXISTS));
                                                 }
 
                                                 // aquí hacemos la encriptación de forma reactiva
@@ -61,11 +62,11 @@ public class UserUseCase {
 
     public Mono<User> updateUser(User user) {
         if (user.getId() == null) {
-            return Mono.error(new IllegalArgumentException(ID_REQUIRED));
+            return Mono.error(new IllegalArgumentException(USER.ID_REQUIRED));
         }
         return validateUser(user)
                 .then(userRepository.findById(user.getId()))
-                .switchIfEmpty(Mono.error(new RuntimeException(USER_NOT_FOUND)))
+                .switchIfEmpty(Mono.error(new RuntimeException(USER.NOT_FOUND)))
                 .flatMap(existingUser -> {
                     //se envia otro objeto modificado para que no pas por la restriccion
                     existingUser.setFirstName(user.getFirstName());
@@ -92,25 +93,31 @@ public class UserUseCase {
         return userRepository.findByEmail(email);
     }
 
+    public Flux<User> findDetailsByEmails(List<String> emails) {
+        return userRepository.findByEmailIn(emails);
+    }
+
     private Mono<User> validateUser(User user) {
         if (user.getFirstName() == null || user.getFirstName().isBlank()) {
-            return Mono.error(new IllegalArgumentException(NAME_REQUIRED));
+            return Mono.error(new IllegalArgumentException(USER.NAME_REQUIRED));
         }
         if (user.getLastName() == null || user.getLastName().isBlank()) {
-            return Mono.error(new IllegalArgumentException(LASTNAME_REQUIRED));
+            return Mono.error(new IllegalArgumentException(USER.LASTNAME_REQUIRED));
         }
         if (user.getEmail() == null || user.getEmail().isBlank()) {
-            return Mono.error(new IllegalArgumentException(EMAIL_REQUIRED));
+            return Mono.error(new IllegalArgumentException(USER.EMAIL_REQUIRED));
         }
         if (!EMAIL_PATTERN.matcher(user.getEmail()).matches()) {
-            return Mono.error(new IllegalArgumentException(EMAIL_INVALID));
+            return Mono.error(new IllegalArgumentException(USER.EMAIL_INVALID));
         }
         if (user.getBaseSalary() == null) {
-            return Mono.error(new IllegalArgumentException(SALARY_BASE_REQUIRED));
+            return Mono.error(new IllegalArgumentException(USER.SALARY_BASE_REQUIRED));
         }
         if (user.getBaseSalary().compareTo(new BigDecimal("0")) <= 0 || user.getBaseSalary().compareTo(new BigDecimal("1500000")) > 0) {
-            return Mono.error(new IllegalArgumentException(SALARY_BASE_RULE));
+            return Mono.error(new IllegalArgumentException(USER.SALARY_BASE_RULE));
         }
         return Mono.just(user);
     }
+
+
 }

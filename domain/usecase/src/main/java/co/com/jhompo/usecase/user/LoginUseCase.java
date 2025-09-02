@@ -6,7 +6,7 @@ import co.com.jhompo.model.user.gateways.UserRepository;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
-import static co.com.jhompo.common.Messages.USER.*;
+import static co.com.jhompo.common.Messages.*;
 
 @RequiredArgsConstructor
 public class LoginUseCase {
@@ -16,13 +16,13 @@ public class LoginUseCase {
 
     public Mono<User> execute(String email, String password) {
         return userRepository.findByEmail(email)
-               .switchIfEmpty(Mono.error(new IllegalArgumentException(USER_NOT_FOUND)))
+               .switchIfEmpty(Mono.error(new IllegalArgumentException(USER.NOT_FOUND)))
                 .flatMap(user -> passwordEncoder.matches(password, user.getPassword())
                 .flatMap(matches -> {
                     if (matches) {
                         return Mono.just(user);
                     } else {
-                        return Mono.error(new IllegalArgumentException(INVALID_CREDENTIALS));
+                        return Mono.error(new IllegalArgumentException(USER.INVALID_CREDENTIALS));
                     }
                 })
         );
