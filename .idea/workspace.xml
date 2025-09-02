@@ -7,9 +7,7 @@
     <list default="true" id="d17807a1-2099-4c0b-8adf-03c50ea72497" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/model/user/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/CustomAccessDeniedHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/CustomAccessDeniedHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/common/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/model/src/main/java/co/com/jhompo/common/Messages.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
