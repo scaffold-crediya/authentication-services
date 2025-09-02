@@ -6,7 +6,6 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.ReactiveSecurityContextHolder;
 import org.springframework.stereotype.Component;
@@ -14,8 +13,9 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
-import java.util.Collections;
 import java.util.List;
+
+import static co.com.jhompo.common.Messages.JWT.BEARER;
 
 @Component
 public class JwtAuthenticationFilter implements WebFilter {
@@ -32,7 +32,7 @@ public class JwtAuthenticationFilter implements WebFilter {
         ServerHttpRequest request = exchange.getRequest();
         String authHeader = request.getHeaders().getFirst(HttpHeaders.AUTHORIZATION);
 
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+        if (authHeader != null && authHeader.startsWith(BEARER)) {
             String token = authHeader.substring(7);
             if (jwtProvider.validateToken(token)) {
                 String email = jwtProvider.getEmailFromToken(token);

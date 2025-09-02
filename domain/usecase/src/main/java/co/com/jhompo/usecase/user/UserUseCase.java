@@ -11,12 +11,14 @@ import java.math.BigDecimal;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
+import static co.com.jhompo.common.Messages.USER.*;
+
 
 @RequiredArgsConstructor
 public class UserUseCase {
 
     private final UserRepository userRepository;
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(EMAIL_REGEX);
     private final PasswordEncoderService passwordEncoder;
 
     public Mono<User> findById(UUID id) {
@@ -35,12 +37,12 @@ public class UserUseCase {
                                 .hasElement()
                                 .flatMap(emailExists -> {
                                     if (emailExists) {
-                                        return Mono.error(new IllegalArgumentException("El correo electrónico ya está registrado."));
+                                        return Mono.error(new IllegalArgumentException(EMAIL_ALREADY_EXISTS));
                                     }
                                     return userRepository.existsByIdentityDocument(validatedUser.getIdentityDocument())
                                             .flatMap(docExists -> {
                                                 if (docExists) {
-                                                    return Mono.error(new IllegalArgumentException("El documento de identidad ya está registrado."));
+                                                    return Mono.error(new IllegalArgumentException(DOCUMENT_EXISTS));
                                                 }
 
                                                 // aquí hacemos la encriptación de forma reactiva
@@ -59,11 +61,11 @@ public class UserUseCase {
 
     public Mono<User> updateUser(User user) {
         if (user.getId() == null) {
-            return Mono.error(new IllegalArgumentException("El ID del usuario es requerido para la actualización."));
+            return Mono.error(new IllegalArgumentException(ID_REQUIRED));
         }
         return validateUser(user)
                 .then(userRepository.findById(user.getId()))
-                .switchIfEmpty(Mono.error(new RuntimeException("El usuario a actualizar no existe.")))
+                .switchIfEmpty(Mono.error(new RuntimeException(USER_NOT_FOUND)))
                 .flatMap(existingUser -> {
                     //se envia otro objeto modificado para que no pas por la restriccion
                     existingUser.setFirstName(user.getFirstName());
@@ -92,22 +94,22 @@ public class UserUseCase {
 
     private Mono<User> validateUser(User user) {
         if (user.getFirstName() == null || user.getFirstName().isBlank()) {
-            return Mono.error(new IllegalArgumentException("El campo First Name es obligatorio."));
+            return Mono.error(new IllegalArgumentException(NAME_REQUIRED));
         }
         if (user.getLastName() == null || user.getLastName().isBlank()) {
-            return Mono.error(new IllegalArgumentException("El campo Last Name es obligatorio."));
+            return Mono.error(new IllegalArgumentException(LASTNAME_REQUIRED));
         }
         if (user.getEmail() == null || user.getEmail().isBlank()) {
-            return Mono.error(new IllegalArgumentException("El campo Email es obligatorio."));
+            return Mono.error(new IllegalArgumentException(EMAIL_REQUIRED));
         }
         if (!EMAIL_PATTERN.matcher(user.getEmail()).matches()) {
-            return Mono.error(new IllegalArgumentException("El formato del correo electrónico es inválido."));
+            return Mono.error(new IllegalArgumentException(EMAIL_INVALID));
         }
         if (user.getBaseSalary() == null) {
-            return Mono.error(new IllegalArgumentException("El campo Base Salary es obligatorio."));
+            return Mono.error(new IllegalArgumentException(SALARY_BASE_REQUIRED));
         }
         if (user.getBaseSalary().compareTo(new BigDecimal("0")) <= 0 || user.getBaseSalary().compareTo(new BigDecimal("1500000")) > 0) {
-            return Mono.error(new IllegalArgumentException("El salario base debe ser un valor numérico entre 0 y 1.500.000."));
+            return Mono.error(new IllegalArgumentException(SALARY_BASE_RULE));
         }
         return Mono.just(user);
     }

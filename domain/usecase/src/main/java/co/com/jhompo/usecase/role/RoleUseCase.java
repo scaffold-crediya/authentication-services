@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import static co.com.jhompo.common.Messages.ROLE.*;
+
 @RequiredArgsConstructor
 public class RoleUseCase {
 
@@ -15,7 +17,7 @@ public class RoleUseCase {
         // Regla de negocio: No permitir la creación de un estado con un nombre duplicado.
         return roleRepository.findByName(status.getName())
                 .flatMap(foundRole ->
-                        Mono.<Role>error(new IllegalArgumentException("El Rol '" + status.getName() + "' already exists."))
+                        Mono.<Role>error(new IllegalArgumentException(ROL_NAME_ALREADY_EXISTS))
                 )
                 .switchIfEmpty(
                         Mono.defer(() -> roleRepository.save(status))
@@ -24,7 +26,7 @@ public class RoleUseCase {
 
     public Mono<Role> getRoleById(Integer id) {
         return roleRepository.findById(id)
-                .switchIfEmpty(Mono.error(new RuntimeException("Role with id " + id + " not found.")));
+                .switchIfEmpty(Mono.error(new RuntimeException(ROL_NOT_FOUND)));
     }
 
     public Flux<Role> getAllRolees() {
@@ -34,7 +36,7 @@ public class RoleUseCase {
     public Mono<Role> updateRole(Role status) {
         // Asegura que el estado exista antes de intentar actualizarlo
         return roleRepository.findById(status.getId())
-                .switchIfEmpty(Mono.error(new RuntimeException("Role with id " + status.getId() + " not found.")))
+                .switchIfEmpty(Mono.error(new RuntimeException(ROL_NOT_FOUND)))
                 .flatMap(existingRole -> roleRepository.save(status));
     }
 

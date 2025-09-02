@@ -14,6 +14,8 @@ import reactor.core.publisher.Mono;
 
 import java.time.Instant;
 
+import static co.com.jhompo.common.Messages.JWT.*;
+
 @Component
 public class CustomAccessDeniedHandler implements ServerAccessDeniedHandler {
 
@@ -30,7 +32,7 @@ public class CustomAccessDeniedHandler implements ServerAccessDeniedHandler {
                 Instant.now().toString(),
                 HttpStatus.FORBIDDEN.value(),
                 HttpStatus.FORBIDDEN.getReasonPhrase(),
-                "Acceso denegado: no tienes permisos suficientes para acceder a este recurso.",
+                UNAUTHORIZED_ACCESS,
                 exchange.getRequest().getPath().toString()
         );
 
