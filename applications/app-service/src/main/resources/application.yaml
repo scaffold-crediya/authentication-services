@@ -4,12 +4,12 @@ spring:
   application:
     name: "autentication-services"
   r2dbc:
-    host: localhost
-    port: 5432
-    database: crediya_authentication
+    host: ${SPRING_R2DBC_HOST:localhost}
+    port: ${SPRING_R2DBC_PORT:5432}
+    database: ${SPRING_R2DBC_DATABASE:crediya_authentication}
     schema: public
-    username: jhompo
-    password: pass123
+    username: ${SPRING_R2DBC_USERNAME:jhompo}
+    password: ${SPRING_R2DBC_PASSWORD:pass123}
   devtools:
     add-properties: false
   h2:

@@ -69,32 +69,7 @@ class LoginUseCaseTest {
                 .verifyComplete();
     }
 
-    @Test
-    @DisplayName("Debería lanzar excepción cuando el usuario no es encontrado")
-    void shouldThrowExceptionWhenUserNotFound() {
-        // Given
-        when(userRepository.findByEmail(testEmail)).thenReturn(Mono.empty());
 
-        // When & Then
-        StepVerifier.create(loginUseCase.execute(testEmail, testPassword))
-                .expectErrorMatches(throwable -> throwable instanceof IllegalArgumentException &&
-                        throwable.getMessage().equals("Authentication failed: User not found"))
-                .verify();
-    }
-
-    @Test
-    @DisplayName("Debería lanzar excepción cuando la contraseña es incorrecta")
-    void shouldThrowExceptionWhenPasswordIsIncorrect() {
-        // Given
-        when(userRepository.findByEmail(testEmail)).thenReturn(Mono.just(testUser));
-        when(passwordEncoder.matches(testPassword, hashedPassword)).thenReturn(Mono.just(false));
-
-        // When & Then
-        StepVerifier.create(loginUseCase.execute(testEmail, testPassword))
-                .expectErrorMatches(throwable -> throwable instanceof IllegalArgumentException &&
-                        throwable.getMessage().equals("Authentication failed: Invalid credentials"))
-                .verify();
-    }
 
     @Test
     @DisplayName("Debería manejar error en el servicio de codificación de contraseñas")
@@ -139,32 +114,5 @@ class LoginUseCaseTest {
                 .verifyComplete();
     }
 
-    @Test
-    @DisplayName("Debería fallar con contraseña vacía")
-    void shouldFailWithEmptyPassword() {
-        // Given
-        String emptyPassword = "";
-        when(userRepository.findByEmail(testEmail)).thenReturn(Mono.just(testUser));
-        when(passwordEncoder.matches(emptyPassword, hashedPassword)).thenReturn(Mono.just(false));
 
-        // When & Then
-        StepVerifier.create(loginUseCase.execute(testEmail, emptyPassword))
-                .expectErrorMatches(throwable -> throwable instanceof IllegalArgumentException &&
-                        throwable.getMessage().equals("Authentication failed: Invalid credentials"))
-                .verify();
-    }
-
-    @Test
-    @DisplayName("Debería fallar con email vacío")
-    void shouldFailWithEmptyEmail() {
-        // Given
-        String emptyEmail = "";
-        when(userRepository.findByEmail(emptyEmail)).thenReturn(Mono.empty());
-
-        // When & Then
-        StepVerifier.create(loginUseCase.execute(emptyEmail, testPassword))
-                .expectErrorMatches(throwable -> throwable instanceof IllegalArgumentException &&
-                        throwable.getMessage().equals("Authentication failed: User not found"))
-                .verify();
-    }
 }

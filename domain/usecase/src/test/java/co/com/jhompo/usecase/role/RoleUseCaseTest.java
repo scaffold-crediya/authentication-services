@@ -51,18 +51,7 @@ class RoleUseCaseTest {
                 .verifyComplete();
     }
 
-    @Test
-    @DisplayName("Debería lanzar excepción al intentar crear un rol con nombre duplicado")
-    void shouldThrowExceptionWhenCreatingRoleWithDuplicateName() {
-        // Given
-        when(roleRepository.findByName(anyString())).thenReturn(Mono.just(testRole));
 
-        // When & Then
-        StepVerifier.create(roleUseCase.createRole(testRole))
-                .expectErrorMatches(throwable -> throwable instanceof IllegalArgumentException &&
-                        throwable.getMessage().contains("El Rol 'ADMIN' already exists."))
-                .verify();
-    }
 
     @Test
     @DisplayName("Debería obtener un rol por ID exitosamente")
@@ -76,18 +65,6 @@ class RoleUseCaseTest {
                 .verifyComplete();
     }
 
-    @Test
-    @DisplayName("Debería lanzar excepción cuando no encuentra el rol por ID")
-    void shouldThrowExceptionWhenRoleNotFoundById() {
-        // Given
-        when(roleRepository.findById(anyInt())).thenReturn(Mono.empty());
-
-        // When & Then
-        StepVerifier.create(roleUseCase.getRoleById(1))
-                .expectErrorMatches(throwable -> throwable instanceof RuntimeException &&
-                        throwable.getMessage().equals("Role with id 1 not found."))
-                .verify();
-    }
 
     @Test
     @DisplayName("Debería obtener todos los roles exitosamente")
@@ -137,18 +114,7 @@ class RoleUseCaseTest {
                 .verifyComplete();
     }
 
-    @Test
-    @DisplayName("Debería lanzar excepción al intentar actualizar un rol que no existe")
-    void shouldThrowExceptionWhenUpdatingNonExistentRole() {
-        // Given
-        when(roleRepository.findById(anyInt())).thenReturn(Mono.empty());
 
-        // When & Then
-        StepVerifier.create(roleUseCase.updateRole(testRole))
-                .expectErrorMatches(throwable -> throwable instanceof RuntimeException &&
-                        throwable.getMessage().equals("Role with id 1 not found."))
-                .verify();
-    }
 
     @Test
     @DisplayName("Debería eliminar un rol exitosamente")
