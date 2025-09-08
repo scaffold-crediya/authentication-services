@@ -3,6 +3,7 @@ package co.com.jhompo.api.security;
 import co.com.jhompo.api.handler.CustomAccessDeniedHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
@@ -33,8 +34,9 @@ public class SecurityConfig {
                         .pathMatchers("/api/v1/login",
                                       "/api/v1/usuarios/email/**").permitAll()
                         .pathMatchers("/api/v1/usuarios/registrar").hasAnyAuthority(ADMIN,ASESOR)
+                        .pathMatchers(HttpMethod.POST,"/api/v1/usuarios/details-by-email").hasAnyAuthority(ADMIN,ASESOR,CLIENTE)
                         .pathMatchers("/api/v1/usuarios/**",
-                                       "/api/v1/roles/**").hasAuthority(ADMIN)
+                                "/api/v1/roles/**").hasAuthority(ADMIN)
                         .anyExchange().authenticated()
                 )
                 .exceptionHandling(e -> e.accessDeniedHandler(new CustomAccessDeniedHandler()))
