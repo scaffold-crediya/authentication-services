@@ -97,7 +97,7 @@ public class UserUseCase {
         return userRepository.findByEmailIn(emails);
     }
 
-    private Mono<User> validateUser(User user) {
+    public Mono<User> validateUser(User user) {
         if (user.getFirstName() == null || user.getFirstName().isBlank()) {
             return Mono.error(new IllegalArgumentException(USER.NAME_REQUIRED));
         }
