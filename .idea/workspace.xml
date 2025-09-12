@@ -5,25 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d17807a1-2099-4c0b-8adf-03c50ea72497" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/domain/model/src/test/java/co/com/jhompo/model/user/UserTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/domain/model/src/test/java/co/com/jhompo/model/user/gateways/UserRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/handler/CustomAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/handler/CustomAccessDeniedHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/handler/CustomAuthenticationEntryPointTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/handler/GlobalErrorHandlerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/security/JwtProviderTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/security/SecurityConfigTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/security/JwtAuthenticationFilterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/main/java/co/com/jhompo/config/UseCasesConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/applications/app-service/src/main/java/co/com/jhompo/config/UseCasesConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/applications/app-service/src/test/java/co/com/jhompo/config/UseCasesConfigTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/UserUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/usecase/src/main/java/co/com/jhompo/usecase/user/UserUseCase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/domain/usecase/src/test/java/co/com/jhompo/usecase/user/UserUseCaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/domain/usecase/src/test/java/co/com/jhompo/usecase/user/UserUseCaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/co/com/jhompo/r2dbc/user/UserRepositoryAdapterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/driven-adapters/r2dbc-postgresql/src/test/java/co/com/jhompo/r2dbc/user/UserRepositoryAdapterTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/JwtProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/main/java/co/com/jhompo/api/security/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/entry-points/reactive-web/src/test/java/co/com/jhompo/api/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +76,8 @@
     "Gradle.CustomAuthenticationEntryPointTest.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
     "Gradle.GlobalErrorHandlerTest.executor": "Run",
+    "Gradle.JwtAuthenticationFilterTest.executor": "Run",
+    "Gradle.JwtAuthenticationFilterTest.filter_WithEmptyRolesList_ShouldSetAuthenticationWithEmptyAuthorities.executor": "Run",
     "Gradle.JwtProviderTest.executor": "Run",
     "Gradle.LoginControllerTest.executor": "Run",
     "Gradle.LoginUseCaseTest.executor": "Run",
@@ -138,7 +124,7 @@
       <recent name="C:\PRO\Microservices\scaffold-crediya\authentication-service\applications\app-service\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.SecurityConfigTest">
+  <component name="RunManager" selected="Gradle.JwtAuthenticationFilterTest">
     <configuration name="CustomAccessDeniedHandlerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -163,7 +149,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CustomAuthenticationEntryPointTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="JwtAuthenticationFilterTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -176,7 +162,31 @@
           <list>
             <option value=":reactive-web:test" />
             <option value="--tests" />
-            <option value="&quot;co.com.jhompo.api.handler.CustomAuthenticationEntryPointTest&quot;" />
+            <option value="&quot;co.com.jhompo.api.security.JwtAuthenticationFilterTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="JwtAuthenticationFilterTest.filter_WithEmptyRolesList_ShouldSetAuthenticationWithEmptyAuthorities" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":reactive-web:test" />
+            <option value="--tests" />
+            <option value="&quot;co.com.jhompo.api.security.JwtAuthenticationFilterTest.filter_WithEmptyRolesList_ShouldSetAuthenticationWithEmptyAuthorities&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -235,30 +245,6 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="UserControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":reactive-web:test" />
-            <option value="--tests" />
-            <option value="&quot;co.com.jhompo.api.UserControllerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -270,11 +256,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.JwtAuthenticationFilterTest" />
+        <item itemvalue="Gradle.JwtAuthenticationFilterTest.filter_WithEmptyRolesList_ShouldSetAuthenticationWithEmptyAuthorities" />
         <item itemvalue="Gradle.SecurityConfigTest" />
         <item itemvalue="Gradle.JwtProviderTest" />
         <item itemvalue="Gradle.CustomAccessDeniedHandlerTest" />
-        <item itemvalue="Gradle.UserControllerTest" />
-        <item itemvalue="Gradle.CustomAuthenticationEntryPointTest" />
       </list>
     </recent_temporary>
   </component>
