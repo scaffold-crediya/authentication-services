@@ -1,6 +1,7 @@
 package co.com.jhompo.api.security;
 
 import co.com.jhompo.api.handler.CustomAccessDeniedHandler;
+import co.com.jhompo.api.handler.CustomAuthenticationEntryPoint;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -14,9 +15,15 @@ import static co.com.jhompo.common.Messages.ROLE.*;
 public class SecurityConfig {
 
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final CustomAuthenticationEntryPoint customAuthEntryPoint;
+    private final CustomAccessDeniedHandler customAccessDeniedHandler;
 
-    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter) {
+    public SecurityConfig(JwtAuthenticationFilter jwtAuthenticationFilter,
+                          CustomAuthenticationEntryPoint customAuthEntryPoint,
+                          CustomAccessDeniedHandler customAccessDeniedHandler) {
         this.jwtAuthenticationFilter = jwtAuthenticationFilter;
+        this.customAuthEntryPoint = customAuthEntryPoint;
+        this.customAccessDeniedHandler = customAccessDeniedHandler;
     }
 
     @Bean
@@ -39,7 +46,10 @@ public class SecurityConfig {
                                 "/api/v1/roles/**").hasAuthority(ADMIN)
                         .anyExchange().authenticated()
                 )
-                .exceptionHandling(e -> e.accessDeniedHandler(new CustomAccessDeniedHandler()))
+                .exceptionHandling(e -> e
+                        .accessDeniedHandler(customAccessDeniedHandler)
+                        .authenticationEntryPoint(customAuthEntryPoint)
+                )
                 .addFilterAt(jwtAuthenticationFilter, SecurityWebFiltersOrder.AUTHENTICATION)
                 .httpBasic(ServerHttpSecurity.HttpBasicSpec::disable)
                 .formLogin(ServerHttpSecurity.FormLoginSpec::disable)

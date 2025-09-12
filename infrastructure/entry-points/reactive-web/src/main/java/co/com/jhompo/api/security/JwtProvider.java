@@ -22,10 +22,10 @@ import static co.com.jhompo.common.Messages.ROLE.*;
 public class JwtProvider {
 
     @Value("${security.jwt.secret-key}")
-    private String secretKey;
+    private final String secretKey;
 
     @Value("${security.jwt.expiration-time}")
-    private long expirationTime; // en milisegundos (ej: 3600000 = 1 hora)
+    private final long expirationTime; // en milisegundos (ej: 3600000 = 1 hora)
 
 
     private final RoleRepository roleRepository; // Inyectar repository
@@ -35,8 +35,14 @@ public class JwtProvider {
     }
 
     // Constructor
-    public JwtProvider(RoleRepository roleRepository) {
+    public JwtProvider(
+            RoleRepository roleRepository,
+            @Value("${security.jwt.secret-key}") String secretKey,
+            @Value("${security.jwt.expiration-time}") long expirationTime
+    ) {
         this.roleRepository = roleRepository;
+        this.secretKey = secretKey;
+        this.expirationTime = expirationTime;
     }
 
     // Generar token
