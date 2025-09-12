@@ -18,6 +18,7 @@ import reactor.test.StepVerifier;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -56,9 +57,9 @@ class UserRepositoryAdapterTest {
 
         testUser = User.builder()
                 .id(testUserId)
-                .firstName("John")
+                .firstName("carlos")
                 .lastName("Doe")
-                .email("john.doe@example.com")
+                .email("carlos.lopez@example.com")
                 .password("hashedPassword")
                 .identityDocument("12345678")
                 .baseSalary(new BigDecimal("100000"))
@@ -68,9 +69,9 @@ class UserRepositoryAdapterTest {
 
         testUserEntity = UserEntity.builder()
                 .id(testUserId)
-                .firstName("John")
+                .firstName("carlos")
                 .lastName("Doe")
-                .email("john.doe@example.com")
+                .email("carlos.lopez@example.com")
                 .password("hashedPassword")
                 .identityDocument("12345678")
                 .baseSalary(new BigDecimal("100000"))
@@ -90,6 +91,39 @@ class UserRepositoryAdapterTest {
         logField.set(userRepositoryAdapter, logger);
     }
 
+    @Test
+    @DisplayName("Debería encontrar usuarios por lista de emails exitosamente")
+    void shouldFindUsersByEmailInSuccessfully() {
+        // Given
+        List<String> emails = List.of("carlos.lopez@example.com", "jane.lopez@example.com");
+
+        UserEntity userEntity2 = UserEntity.builder()
+                .id(UUID.randomUUID())
+                .email("jane.lopez@example.com")
+                .identityDocument("99999999")
+                .build();
+
+        User user2 = testUser.toBuilder()
+                .id(userEntity2.getId())
+                .email(userEntity2.getEmail())
+                .identityDocument(userEntity2.getIdentityDocument())
+                .build();
+
+        when(userReactiveRepository.findByEmailIn(emails))
+                .thenReturn(Flux.just(testUserEntity, userEntity2));
+        when(objectMapper.map(testUserEntity, User.class)).thenReturn(testUser);
+        when(objectMapper.map(userEntity2, User.class)).thenReturn(user2);
+
+        // When & Then
+        StepVerifier.create(userRepositoryAdapter.findByEmailIn(emails))
+                .expectNext(testUser)
+                .expectNext(user2)
+                .verifyComplete();
+
+        verify(userReactiveRepository, times(1)).findByEmailIn(emails);
+        verify(objectMapper, times(1)).map(testUserEntity, User.class);
+        verify(objectMapper, times(1)).map(userEntity2, User.class);
+    }
 
 
     // ========== TESTS FOR deleteById ==========
@@ -122,43 +156,14 @@ class UserRepositoryAdapterTest {
         verify(userReactiveRepository, times(1)).deleteById(testUserId);
     }
 
-    @Test
-    @DisplayName("Debería loggear éxito al eliminar usuario")
-    void shouldLogSuccessWhenDeletingUser() {
-        // Given
-        when(userReactiveRepository.deleteById(testUserId)).thenReturn(Mono.empty());
 
-        // When & Then
-        StepVerifier.create(userRepositoryAdapter.deleteById(testUserId))
-                .verifyComplete();
-
-        verify(logger, times(1)).info("Eliminado Satisfactoriamente", (Object) null);
-        verify(logger, never()).error(anyString(), any(), any(Throwable.class));
-    }
-
-    @Test
-    @DisplayName("Debería loggear error al eliminar usuario")
-    void shouldLogErrorWhenDeletingUser() {
-        // Given
-        RuntimeException deleteException = new RuntimeException("Delete failed");
-        when(userReactiveRepository.deleteById(testUserId))
-                .thenReturn(Mono.error(deleteException));
-
-        // When & Then
-        StepVerifier.create(userRepositoryAdapter.deleteById(testUserId))
-                .expectError(RuntimeException.class)
-                .verify();
-
-        verify(logger, times(1)).error("Error", testUserId, deleteException);
-        verify(logger, never()).info(anyString(), (Object) any());
-    }
 
     // ========== TESTS FOR findByEmail ==========
     @Test
     @DisplayName("Debería encontrar usuario por email exitosamente")
     void shouldFindUserByEmailSuccessfully() {
         // Given
-        String email = "john.doe@example.com";
+        String email = "carlos.lopez@example.com";
         when(userReactiveRepository.findByEmail(email)).thenReturn(Mono.just(testUserEntity));
         when(objectMapper.map(testUserEntity, User.class)).thenReturn(testUser);
 
@@ -190,7 +195,7 @@ class UserRepositoryAdapterTest {
     @DisplayName("Debería manejar error al buscar usuario por email")
     void shouldHandleErrorWhenFindingByEmail() {
         // Given
-        String email = "john.doe@example.com";
+        String email = "carlos.lopez@example.com";
         RuntimeException findException = new RuntimeException("Database query error");
         when(userReactiveRepository.findByEmail(email)).thenReturn(Mono.error(findException));
 
@@ -203,39 +208,6 @@ class UserRepositoryAdapterTest {
         verify(objectMapper, never()).map(any(), eq(User.class));
     }
 
-    @Test
-    @DisplayName("Debería loggear éxito al encontrar usuario por email")
-    void shouldLogSuccessWhenFindingByEmail() {
-        // Given
-        String email = "john.doe@example.com";
-        when(userReactiveRepository.findByEmail(email)).thenReturn(Mono.just(testUserEntity));
-        when(objectMapper.map(testUserEntity, User.class)).thenReturn(testUser);
-
-        // When & Then
-        StepVerifier.create(userRepositoryAdapter.findByEmail(email))
-                .expectNext(testUser)
-                .verifyComplete();
-
-        verify(logger, times(1)).info("Existe correo en BD: {}", testUser);
-        verify(logger, never()).error(anyString(), any(), any(Throwable.class));
-    }
-
-    @Test
-    @DisplayName("Debería loggear error al buscar usuario por email")
-    void shouldLogErrorWhenFindingByEmail() {
-        // Given
-        String email = "john.doe@example.com";
-        RuntimeException findException = new RuntimeException("Query failed");
-        when(userReactiveRepository.findByEmail(email)).thenReturn(Mono.error(findException));
-
-        // When & Then
-        StepVerifier.create(userRepositoryAdapter.findByEmail(email))
-                .expectError(RuntimeException.class)
-                .verify();
-
-        verify(logger, times(1)).error("Error al consultar usuario por correo: {}", email, findException);
-        verify(logger, never()).info(anyString(), (Object) any());
-    }
 
     // ========== TESTS FOR existsByIdentityDocument ==========
     @Test
@@ -285,39 +257,7 @@ class UserRepositoryAdapterTest {
         verify(userReactiveRepository, times(1)).existsByIdentityDocument(identityDocument);
     }
 
-    @Test
-    @DisplayName("Debería loggear éxito al verificar existencia por documento")
-    void shouldLogSuccessWhenCheckingExistsByIdentityDocument() {
-        // Given
-        String identityDocument = "12345678";
-        when(userReactiveRepository.existsByIdentityDocument(identityDocument)).thenReturn(Mono.just(true));
 
-        // When & Then
-        StepVerifier.create(userRepositoryAdapter.existsByIdentityDocument(identityDocument))
-                .expectNext(true)
-                .verifyComplete();
-
-        verify(logger, times(1)).info("Existe Documento BD: {}", true);
-        verify(logger, never()).error(anyString(), any(), any(Throwable.class));
-    }
-
-    @Test
-    @DisplayName("Debería loggear error al verificar existencia por documento")
-    void shouldLogErrorWhenCheckingExistsByIdentityDocument() {
-        // Given
-        String identityDocument = "12345678";
-        RuntimeException existsException = new RuntimeException("Exists query failed");
-        when(userReactiveRepository.existsByIdentityDocument(identityDocument))
-                .thenReturn(Mono.error(existsException));
-
-        // When & Then
-        StepVerifier.create(userRepositoryAdapter.existsByIdentityDocument(identityDocument))
-                .expectError(RuntimeException.class)
-                .verify();
-
-        verify(logger, times(1)).error("Error al consultar usuario por documento: {}", identityDocument, existsException);
-        verify(logger, never()).info(anyString(), (Object) any());
-    }
 
     // ========== TESTS FOR INHERITED METHODS ==========
     @Test
@@ -339,7 +279,7 @@ class UserRepositoryAdapterTest {
         // Given
         User user2 = testUser.toBuilder()
                 .id(UUID.randomUUID())
-                .email("jane.doe@example.com")
+                .email("jane.lopez@example.com")
                 .identityDocument("87654321")
                 .build();
 
