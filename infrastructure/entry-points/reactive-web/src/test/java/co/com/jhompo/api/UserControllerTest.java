@@ -2,7 +2,6 @@ package co.com.jhompo.api;
 
 import co.com.jhompo.api.dtos.user.UserRequestDTO;
 import co.com.jhompo.api.dtos.user.UserResponseDTO;
-import co.com.jhompo.common.Messages.*;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.usecase.user.UserUseCase;
 import org.junit.jupiter.api.BeforeEach;

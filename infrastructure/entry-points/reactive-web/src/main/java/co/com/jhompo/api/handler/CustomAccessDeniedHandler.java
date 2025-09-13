@@ -14,7 +14,7 @@ import reactor.core.publisher.Mono;
 
 import java.time.Instant;
 
-import static co.com.jhompo.common.Messages.JWT.*;
+import static co.com.jhompo.util.Messages.JWT.*;
 
 @Component
 public class CustomAccessDeniedHandler implements ServerAccessDeniedHandler {

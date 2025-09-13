@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
-import static co.com.jhompo.common.Messages.ROLE.*;
+import static co.com.jhompo.util.Messages.ROLE.*;
 
 @RequiredArgsConstructor
 public class RoleUseCase {

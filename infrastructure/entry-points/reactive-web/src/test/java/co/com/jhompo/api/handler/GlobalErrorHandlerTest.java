@@ -19,9 +19,9 @@ import java.security.SignatureException;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-import static co.com.jhompo.common.Messages.SYSTEM.*;
-import static co.com.jhompo.common.Messages.USER.*;
-import static co.com.jhompo.common.Messages.ROLE.*;
+import static co.com.jhompo.util.Messages.SYSTEM.*;
+import static co.com.jhompo.util.Messages.USER.*;
+import static co.com.jhompo.util.Messages.ROLE.*;
 
 class GlobalErrorHandlerTest {
 

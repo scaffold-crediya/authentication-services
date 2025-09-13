@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
-import static co.com.jhompo.common.Messages.HTTP.*;
-import static co.com.jhompo.common.Messages.SYSTEM.*;
-import static co.com.jhompo.common.Messages.USER.*;
+import static co.com.jhompo.util.Messages.HTTP.*;
+import static co.com.jhompo.util.Messages.SYSTEM.*;
+import static co.com.jhompo.util.Messages.USER.*;
 
 @RestController
 @RequestMapping("/api/v1/login")

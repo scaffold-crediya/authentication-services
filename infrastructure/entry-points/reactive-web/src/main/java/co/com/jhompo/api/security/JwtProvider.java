@@ -1,6 +1,5 @@
 package co.com.jhompo.api.security;
 
-import co.com.jhompo.common.Messages;
 import co.com.jhompo.model.role.Role;
 import co.com.jhompo.model.role.gateways.RoleRepository;
 import co.com.jhompo.model.user.User;
@@ -14,8 +13,8 @@ import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
-import static co.com.jhompo.common.Messages.JWT.*;
-import static co.com.jhompo.common.Messages.ROLE.*;
+import static co.com.jhompo.util.Messages.JWT.*;
+import static co.com.jhompo.util.Messages.ROLE.*;
 
 
 @Component
