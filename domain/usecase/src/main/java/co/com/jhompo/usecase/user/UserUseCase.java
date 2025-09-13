@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-import static co.com.jhompo.common.Messages.*;
+import static co.com.jhompo.util.Messages.*;
 
 
 @RequiredArgsConstructor

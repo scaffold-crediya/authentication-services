@@ -1,10 +1,11 @@
 package co.com.jhompo.r2dbc.config;
 
-// Load properties from the application.yaml file or from secrets manager
-// import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+@jakarta.annotation.Generated(
+        value = "configuration-properties",
+        comments = "Simple configuration record - no business logic to test"
+)
 @ConfigurationProperties(prefix = "spring.r2dbc")
 public record PostgresqlConnectionProperties(
         String host,

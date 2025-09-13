@@ -26,31 +26,4 @@ import java.util.UUID;
         useDefaultFilters = false)
 @Configuration
 public class UseCasesConfig {
-
-    private final UserRepository userRepository;
-    private final RoleRepository roleRepository;
-    private final PasswordEncoderService passwordEncoder;
-
-    public UseCasesConfig(UserRepository userRepository,
-                          RoleRepository roleRepository,
-                          PasswordEncoderService passwordEncoder) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
-
-    @Bean
-    public UserUseCase userUseCase() {
-        return new UserUseCase(userRepository, passwordEncoder);
-    }
-
-    @Bean
-    public LoginUseCase loginUseCase() {
-        return new LoginUseCase(userRepository, passwordEncoder);
-    }
-
-    @Bean
-    public RoleUseCase roleUseCase() {
-        return new RoleUseCase(roleRepository);
-    }
 }

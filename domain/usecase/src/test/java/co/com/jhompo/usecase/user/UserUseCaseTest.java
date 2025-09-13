@@ -1,6 +1,6 @@
 package co.com.jhompo.usecase.user;
 
-import co.com.jhompo.common.Messages.*;
+import co.com.jhompo.util.Messages.*;
 import co.com.jhompo.model.security.PasswordEncoderService;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.model.user.gateways.UserRepository;

@@ -6,7 +6,7 @@ import co.com.jhompo.model.user.gateways.UserRepository;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
-import static co.com.jhompo.common.Messages.*;
+import static co.com.jhompo.util.Messages.*;
 
 @RequiredArgsConstructor
 public class LoginUseCase {
