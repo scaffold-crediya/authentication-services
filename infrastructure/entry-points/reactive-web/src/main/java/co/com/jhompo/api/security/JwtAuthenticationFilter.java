@@ -15,7 +15,7 @@ import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
 import java.util.List;
 
-import static co.com.jhompo.common.Messages.JWT.BEARER;
+import static co.com.jhompo.util.Messages.JWT.BEARER;
 
 @Component
 public class JwtAuthenticationFilter implements WebFilter {

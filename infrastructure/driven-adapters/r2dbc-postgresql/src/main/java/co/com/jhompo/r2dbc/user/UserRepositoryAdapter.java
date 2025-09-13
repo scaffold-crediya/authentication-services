@@ -1,6 +1,6 @@
 package co.com.jhompo.r2dbc.user;
 
-import co.com.jhompo.common.Messages.*;
+import co.com.jhompo.util.Messages.*;
 import co.com.jhompo.model.user.User;
 import co.com.jhompo.model.user.gateways.UserRepository;
 import co.com.jhompo.r2dbc.entity.UserEntity;
