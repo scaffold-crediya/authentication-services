@@ -19,9 +19,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-import static co.com.jhompo.common.Messages.ROLE.ROLE;
-import static co.com.jhompo.common.Messages.ROLE.ROLE_ID;
-import static co.com.jhompo.common.Messages.ROLE.USER_ID;
+import static co.com.jhompo.util.Messages.ROLE.ROLE;
+import static co.com.jhompo.util.Messages.ROLE.ROLE_ID;
+import static co.com.jhompo.util.Messages.ROLE.USER_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;

@@ -17,7 +17,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 import java.util.UUID;
 
-import static co.com.jhompo.common.Messages.*;
+import static co.com.jhompo.util.Messages.*;
 
 @RestController
 @RequestMapping("/api/v1/usuarios")

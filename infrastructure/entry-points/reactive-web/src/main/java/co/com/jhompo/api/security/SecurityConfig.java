@@ -9,7 +9,7 @@ import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 import org.springframework.security.config.web.server.SecurityWebFiltersOrder;
 
-import static co.com.jhompo.common.Messages.ROLE.*;
+import static co.com.jhompo.util.Messages.ROLE.*;
 
 @Configuration
 public class SecurityConfig {

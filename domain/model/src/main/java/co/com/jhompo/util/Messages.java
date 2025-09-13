@@ -1,4 +1,4 @@
-package co.com.jhompo.common;
+package co.com.jhompo.util;
 
 
 // CLASE GLOBAL DE MENSAJES
@@ -233,5 +233,6 @@ public final class Messages {
     private Messages() {
         throw new IllegalStateException("Utility class - No debe ser instanciada");
     }
+
 }
 
